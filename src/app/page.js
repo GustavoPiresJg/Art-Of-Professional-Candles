@@ -85,7 +85,7 @@ export default function Home() {
       {/* SPACER */}
       <div className="section-gap" />
 
-      {/* TESTIMONIALS */}
+      {/* TESTIMONIALS (ANTIGOS - NÃO MEXE) */}
       <section className="testimonials" aria-label="Student testimonials">
         <div className="container">
           <h2 className="testimonials-title">Here&apos;s What Our Students Are Saying...</h2>
@@ -184,7 +184,7 @@ export default function Home() {
 
               <div className="benefit">
                 <img className="benefit-ico" src="/Supportive-Community.webp" alt="Supportive Community" />
-                <div className="benefit-txt">SUPPORTIVE<br />COMMUNITY</div>
+                <div className="benefit-txt">SUPPORT</div>
               </div>
 
               <div className="benefit">
@@ -231,6 +231,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NOVA SEÇÃO DEPOIMENTOS (DEPOIS DO INCLUDED) */}
+      <section className="testimonials2" aria-label="Happy students testimonials">
+        <div className="container">
+          <h2 className="testimonials2-title">
+            <span className="testimonials2-top">Don&apos;t Just Take Our Word for It.</span>
+            <span className="testimonials2-sub">Hear What Happy Students Are Saying!</span>
+          </h2>
+
+          <TestimonialsShowcase />
+        </div>
+      </section>
+
+
+            {/* AVISO (DATE AUTO) */}
+      <section className="note" aria-label="Important note">
+        <div className="container">
+          <AlertNote />
+        </div>
+      </section>
+
       <div id="enroll" style={{ height: 1 }} />
     </>
   );
@@ -256,6 +276,9 @@ function IgCard({ name, ariaHidden = false }) {
   );
 }
 
+/* =========================
+   TESTIMONIALS (ANTIGOS - CAROUSEL)
+========================= */
 function TestimonialsCarousel() {
   const items = useMemo(
     () => [
@@ -375,6 +398,118 @@ function TestimonialsCarousel() {
   );
 }
 
+/* =========================
+   NEW TESTIMONIALS (3 on PC, swipe on mobile)
+========================= */
+function TestimonialsShowcase() {
+  const items = useMemo(
+    () => [
+      {
+        key: "julia",
+        name: "Julia T.",
+        img: "/Julia-t.webp",
+        text:
+          "“As a full-time mom, I needed something flexible that I could do from home. The Handmade Candle Making Course was perfect. The step-by-step lessons were so easy to follow, even with my hectic schedule. Now, I’m not only creating beautiful candles but also selling them at local markets. It’s given me the financial independence I’ve always wanted!”",
+      },
+      {
+        key: "brenda",
+        name: "Brenda L.",
+        img: "/Bendra-l.webp",
+        text:
+          "“I started this course because I wanted a new hobby, but it quickly turned into something I’m truly passionate about. The techniques taught are so professional that my friends can’t believe I made these candles myself! The course even helped me understand how to market my creations online. I couldn’t be happier!”",
+      },
+      {
+        key: "olivia",
+        name: "Olivia G.",
+        img: "/Olivia-g.webp",
+        text:
+          "“I was in a creative rut when I stumbled upon this candle-making course. It reignited my love for crafting. The course is well-structured, and I learned so many new techniques that I had never even considered before. Now, my home is filled with beautiful, aromatic candles that I made myself. It’s been a truly inspiring journey!”",
+      },
+    ],
+    []
+  );
+
+  return (
+    <div className="t2">
+      <div className="t2-grid" aria-label="Student testimonials">
+        {items.map((t) => (
+          <article className={`t2-card ${t.key}`} key={t.key}>
+            <div className="t2-media" aria-hidden="true">
+              <Image
+                src={t.img}
+                alt={t.name}
+                fill
+                sizes="(max-width: 900px) 88vw, 360px"
+                className="t2-img"
+                priority={t.key === "julia"}
+              />
+            </div>
+
+            <div className="t2-body">
+              <div className="t2-stars" aria-label="5 star rating">
+                {"★★★★★"}
+              </div>
+
+              <p className="t2-text">{t.text}</p>
+
+              <div className="t2-foot">
+                <span className="t2-name">{t.name}</span>
+
+                <span className="t2-verified">
+                  <span className="t2-badge" aria-hidden="true">
+                    ✔
+                  </span>
+                  Verified Buyer
+                </span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function AlertNote() {
+  const [dateStr, setDateStr] = useState("");
+
+  useEffect(() => {
+    const d = new Date();
+    const formatted = new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }).format(d);
+
+    setDateStr(formatted);
+  }, []);
+
+  return (
+    <div className="note-card">
+      <img className="note-ico" src="/alert.webp" alt="" aria-hidden="true" />
+
+      <div className="note-head">
+        <span className="note-label">Note:</span>{" "}
+        <span className="note-date">{dateStr || " "}</span>
+      </div>
+
+      <div className="note-text">
+        <p>
+          Because of the high demand, we regret to inform you that{" "}
+          <strong>once our current spots are filled we can&apos;t maintain this special discount offer.</strong>
+        </p>
+
+        <p>
+          We also must inform you that{" "}
+          <span className="note-pink">the product is unavailable</span>{" "}
+          for purchase on other platforms.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+
 function ReasonsCarousel() {
   const items = useMemo(
     () => [
@@ -387,8 +522,7 @@ function ReasonsCarousel() {
       {
         n: "2",
         title: "Beginner-Friendly",
-        text:
-          "No experience is needed! Our course breaks everything down into simple, easy-to-follow steps.",
+        text: "No experience is needed! Our course breaks everything down into simple, easy-to-follow steps.",
       },
       {
         n: "3",
@@ -411,8 +545,7 @@ function ReasonsCarousel() {
       {
         n: "6",
         title: "Risk-Free Guarantee",
-        text:
-          "Try it risk-free for 7 days. If  you’re not satisfied, we’ll give you a full refund no questions asked.",
+        text: "Try it risk-free for 7 days. If  you’re not satisfied, we’ll give you a full refund no questions asked.",
       },
     ],
     []
@@ -513,7 +646,7 @@ function IncludedCarousel() {
         img: "/aromatheraphy.webp",
         title: "Essential Guide to Aromatherapy Candles (Ebook)",
         text:
-          "Create premium aromatherapy candles with fragr ance blending tips and simple, professional methods.",
+          "Create premium aromatherapy candles with fragrance blending tips and simple, professional methods.",
       },
       {
         key: "biz",
@@ -559,19 +692,52 @@ function IncludedCarousel() {
   );
 
   const trackRef = useRef(null);
-  const [active, setActive] = useState(0);
+
+  const [isDesktop, setIsDesktop] = useState(true);
+  const [activePage, setActivePage] = useState(0);
+
+  const perViewDesktop = 3;
+  const pagesCount = isDesktop ? Math.max(1, items.length - perViewDesktop + 1) : items.length;
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 901px)");
+    const apply = () => setIsDesktop(mq.matches);
+    apply();
+
+    mq.addEventListener?.("change", apply);
+    return () => mq.removeEventListener?.("change", apply);
+  }, []);
 
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
 
-    // 1) Scroll normal (para dots)
-    const onScroll = () => {
+    const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+
+    const getClosestIndexToLeft = () => {
       const children = Array.from(el.children);
-      if (!children.length) return;
+      if (!children.length) return 0;
+
+      const left = el.scrollLeft;
+      let bestIndex = 0;
+      let bestDist = Infinity;
+
+      children.forEach((child, idx) => {
+        const dist = Math.abs(child.offsetLeft - left);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIndex = idx;
+        }
+      });
+
+      return bestIndex;
+    };
+
+    const getClosestIndexToCenter = () => {
+      const children = Array.from(el.children);
+      if (!children.length) return 0;
 
       const center = el.scrollLeft + el.clientWidth / 2;
-
       let bestIndex = 0;
       let bestDist = Infinity;
 
@@ -584,23 +750,33 @@ function IncludedCarousel() {
         }
       });
 
-      setActive(bestIndex);
+      return bestIndex;
     };
 
-    // 2) Wheel vertical -> scroll horizontal (PC)
+    const onScroll = () => {
+      if (isDesktop) {
+        const idx = getClosestIndexToLeft();
+        const page = clamp(idx, 0, pagesCount - 1);
+        setActivePage(page);
+      } else {
+        const idx = getClosestIndexToCenter();
+        setActivePage(idx);
+      }
+    };
+
     const onWheel = (e) => {
-      // trackpad horizontal: deixa passar
+      if (!isDesktop) return;
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       e.preventDefault();
       el.scrollLeft += e.deltaY;
     };
 
-    // 3) Drag com mouse
     let isDown = false;
     let startX = 0;
     let startLeft = 0;
 
     const onDown = (e) => {
+      if (!isDesktop) return;
       isDown = true;
       startX = e.clientX;
       startLeft = el.scrollLeft;
@@ -609,12 +785,14 @@ function IncludedCarousel() {
     };
 
     const onMove = (e) => {
+      if (!isDesktop) return;
       if (!isDown) return;
       const dx = e.clientX - startX;
       el.scrollLeft = startLeft - dx;
     };
 
     const onUp = () => {
+      if (!isDesktop) return;
       isDown = false;
       el.classList.remove("is-dragging");
     };
@@ -633,17 +811,24 @@ function IncludedCarousel() {
       el.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerup", onUp);
     };
-  }, []);
+  }, [isDesktop, pagesCount]);
 
-  const goTo = (i) => {
+  const goTo = (pageIndex) => {
     const el = trackRef.current;
     if (!el) return;
-    const child = el.children[i];
-    if (!child) return;
-    el.scrollTo({
-      left: child.offsetLeft - (el.clientWidth - child.clientWidth) / 2,
-      behavior: "smooth",
-    });
+
+    if (isDesktop) {
+      const child = el.children[pageIndex];
+      if (!child) return;
+      el.scrollTo({ left: child.offsetLeft, behavior: "smooth" });
+    } else {
+      const child = el.children[pageIndex];
+      if (!child) return;
+      el.scrollTo({
+        left: child.offsetLeft - (el.clientWidth - child.clientWidth) / 2,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -726,12 +911,12 @@ function IncludedCarousel() {
       </div>
 
       <div className="inc-dots" aria-label="included pagination">
-        {items.map((_, i) => (
+        {Array.from({ length: pagesCount }).map((_, i) => (
           <button
             key={i}
             type="button"
-            className={`inc-dot ${active === i ? "is-active" : ""}`}
-            aria-label={`Go to bonus ${i + 1}`}
+            className={`inc-dot ${activePage === i ? "is-active" : ""}`}
+            aria-label={`Go to bonus page ${i + 1}`}
             onClick={() => goTo(i)}
           />
         ))}
