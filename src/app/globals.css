@@ -1612,3 +1612,166 @@ img { display: block; max-width: 100%; }
     font-size: 16px;
   }
 }
+
+/* =========================
+   OUR COURSE vs. ALTERNATIVES
+========================= */
+.compare{
+  background: #fff;
+  padding: 84px 0 96px;
+}
+
+.compare-title{
+  margin: 0 0 38px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 44px;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+  color: #0b0b0b;
+}
+
+.compare-pink{ color: var(--pink); }
+
+.compare-media{
+  width: min(980px, 100%);
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.compare-img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.compare-media--mobile{ display: none; }
+.compare-media--desktop{ display: grid; }
+
+@media (max-width: 900px){
+  .compare{
+    padding: 48px 0 62px;
+  }
+
+  .compare-title{
+    font-size: 30px;
+    margin-bottom: 18px;
+    text-align: center;
+    line-height: 1.05;
+  }
+
+  .compare-media--desktop{ display: none; }
+  .compare-media--mobile{ display: block; }
+
+  .compare-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .compare-col{
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .compare-col--labels{ background: #e7e7e7; }
+  .compare-col--ours{ background: #ff1db1; }
+  .compare-col--others{ background: #232323; }
+
+  .compare-cap{
+    height: 104px;
+    display: grid;
+    place-items: center;
+  }
+
+  .compare-cap--labels{
+    background: rgba(0,0,0,0.05);
+  }
+
+  .compare-cap--ours{
+    background: rgba(255,255,255,0.12);
+    padding: 8px 10px;
+  }
+
+  .compare-books{
+  width: 100%;
+  max-width: 260px; /* aumenta aqui */
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+  .compare-cap--others{
+  background: #8d8d8d;
+  color: #111;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  padding: 0 6px;
+  margin: 14px 0 0;
+  box-sizing: border-box;
+}
+
+  .compare-row{
+    height: 74px;
+    display: grid;
+    place-items: center;
+  }
+
+  .compare-row--l{
+    font-weight: 900;
+    color: #111;
+    font-size: 14px;
+    text-align: center;
+    padding: 0 10px;
+    background: rgba(255,255,255,0.28);
+  }
+
+  .compare-col--labels .compare-row:nth-child(odd){ background: rgba(255,255,255,0.22); }
+  .compare-col--ours .compare-row:nth-child(even){ background: rgba(255,255,255,0.16); }
+  .compare-col--others .compare-row:nth-child(even){ background: rgba(255,255,255,0.12); }
+
+  .compare-row--c{
+    background: rgba(255,255,255,0.14);
+  }
+
+  .compare-ic{
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+    border: 2px solid rgba(255,255,255,0.75);
+    color: #fff;
+  }
+
+  .compare-ic--ok{ border-color: rgba(255,255,255,0.9); }
+  .compare-ic--no{ border-color: rgba(255,255,255,0.75); }
+}
+
+
+.compare-cap--ours{
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.compare-cap--ours img{
+  width: 200% !important;    
+  max-width: none !important;
+  height: auto !important;
+  display: block !important;
+}
