@@ -2214,3 +2214,259 @@ img { display: block; max-width: 100%; }
     margin: 0 auto;
   }
 }
+
+
+
+/* =========================
+   FAQ (PENULTIMATE)
+========================= */
+.faq{
+  background:#fff;
+  padding: 56px 0 66px;
+}
+
+.faq-title{
+  text-align:center;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.05;
+  margin: 0 0 26px;
+}
+
+.faq-list{
+  width: min(980px, 100%);
+  margin: 0 auto;
+  display:flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.faq-item{ width: 100%; }
+
+.faq-q{
+  width: 100%;
+  border: 0;
+  background: var(--pink);
+  color:#fff;
+  font-weight: 900;
+  font-size: 22px;
+  text-align:left;
+  padding: 18px 18px;
+  border-radius: 6px 6px 0 0;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 14px;
+  cursor:pointer;
+}
+
+.faq-qText{ display:block; }
+
+.faq-chev{
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  position: relative;
+}
+
+.faq-chev::before{
+  content:"";
+  position:absolute;
+  inset: 4px 5px 6px 5px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  transition: transform .18s ease;
+}
+
+
+.faq-item:not(.is-open) .faq-q{
+  border-radius: 6px;
+}
+/* Answer panel animation */
+.faq-a{
+  background: #e6e6e6;
+  color:#0b0b0b;
+  border-radius: 0 0 6px 6px;
+  font-size: 16px;
+  line-height: 1.55;
+
+  /* closed */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 18px;
+
+  transition: max-height .35s ease, opacity .25s ease, padding .25s ease;
+}
+
+.faq-item.is-open .faq-a{
+  max-height: 520px; /* big enough for the longest answer */
+  opacity: 1;
+  padding: 18px 18px;
+}
+
+.faq-item.is-open .faq-chev::before{
+  transform: rotate(-135deg);
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .faq{ padding: 44px 0 56px; }
+  .faq-title{
+    font-size: 34px;
+    padding: 0 14px;
+  }
+  .faq-list{ gap: 14px; }
+  .faq-q{
+    font-size: 15 px;
+    padding: 16px 16px;
+  }
+  .faq-a{
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   HERO IG FEED (IMPROVED)
+========================= */
+.hero-right{
+  position: relative;
+}
+
+.vcols{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.vcols--masked::before,
+.vcols--masked::after{
+  content:"";
+  position:absolute;
+  left:-6px;
+  right:-6px;
+  height: 90px;
+  z-index: 5;
+  pointer-events:none;
+}
+
+.vcols--masked::before{
+  top:-8px;
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0) 100%);
+}
+
+.vcols--masked::after{
+  bottom:-8px;
+  background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0) 100%);
+}
+
+.vcol{
+  height: 600px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.vtrack{
+  display: grid;
+  gap: 18px;
+}
+
+.vcol-up .vtrack{
+  animation: vscrollUp 16s linear infinite;
+}
+.vcol-down .vtrack{
+  animation: vscrollDown 16s linear infinite;
+}
+
+@keyframes vscrollUp{
+  from{ transform: translateY(0); }
+  to{ transform: translateY(-50%); }
+}
+@keyframes vscrollDown{
+  from{ transform: translateY(-50%); }
+  to{ transform: translateY(0); }
+}
+
+.ig-card{
+  width: 100%;
+  background: #fff;
+  border: 2px solid rgba(255, 26, 168, 0.65);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ig-top{
+  height: 46px;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 12px;
+  background:#fff;
+}
+
+.ig-avatar{
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.08), rgba(0,0,0,0.02));
+}
+
+.ig-name{
+  font-weight: 700;
+  font-size: 14px;
+  color:#303030;
+}
+
+.ig-dots{
+  margin-left:auto;
+  font-size: 18px;
+  color:#4a4a4a;
+  line-height: 1;
+}
+
+.ig-photo{
+  aspect-ratio: 1 / 1;
+  background:#efefef;
+}
+
+.ig-img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+.ig-bottom{
+  height: 44px;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 0 12px;
+  background:#fff;
+  color:#111;
+}
+
+.ig-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#111;
+  opacity: 0.9;
+}
+
+/* Mobile layout: keep as reference (carousel row already) */
+@media (max-width: 900px){
+  .vcols{
+    gap: 14px;
+  }
+  .vcol{
+    height: 320px;
+  }
+  .vcols--masked::before,
+  .vcols--masked::after{
+    height: 64px;
+  }
+}

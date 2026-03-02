@@ -7,6 +7,25 @@ export default function Home() {// Testimonials carousel (mobile)
 const t3Ref = useRef(null);
 const [t3Active, setT3Active] = useState(0);
 
+
+
+const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const mq = window.matchMedia("(max-width: 900px)");
+  const apply = () => setIsMobile(mq.matches);
+  apply();
+
+  // Safari fallback
+  if (mq.addEventListener) {
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  } else {
+    mq.addListener(apply);
+    return () => mq.removeListener(apply);
+  }
+}, []);
+
 const onT3Scroll = () => {
   const el = t3Ref.current;
   if (!el) return;
@@ -56,36 +75,36 @@ const onT3Scroll = () => {
 
             {/* CAROUSEL */}
             <div className="hero-right" aria-label="Student results carousel">
-              <div className="vcols">
+              <div className="vcols vcols--masked">
                 {/* COL A (moves up) */}
                 <div className="vcol vcol-up">
                   <div className="vtrack">
-                    <IgCard name="Lara T." />
-                    <IgCard name="Kate G." />
-                    <IgCard name="Emma S." />
-                    <IgCard name="Olivia E." />
+                    <IgCard name="Lara T." src="/womanart2.webp"  />
+                    <IgCard name="Kate G." src="/womanart3.webp"  />
+                    <IgCard name="Emma S." src="/womanart7.webp"  />
+                    <IgCard name="Olivia E." src="/womanart.webp"  />
 
                     {/* duplicate for seamless loop */}
-                    <IgCard name="Lara T." ariaHidden />
-                    <IgCard name="Kate G." ariaHidden />
-                    <IgCard name="Emma S." ariaHidden />
-                    <IgCard name="Olivia E." ariaHidden />
+                    <IgCard name="Lara T." src="/womanart2.webp" ariaHidden  />
+                    <IgCard name="Kate G." src="/womanart3.webp" ariaHidden  />
+                    <IgCard name="Emma S." src="/womanart7.webp" ariaHidden  />
+                    <IgCard name="Olivia E." src="/womanart.webp" ariaHidden  />
                   </div>
                 </div>
 
                 {/* COL B (moves down) */}
                 <div className="vcol vcol-down">
                   <div className="vtrack">
-                    <IgCard name="Kate G." />
-                    <IgCard name="Olivia E." />
-                    <IgCard name="Lara T." />
-                    <IgCard name="Linda O." />
+                    <IgCard name="Kate G." src="/womanart3.webp"  />
+                    <IgCard name="Olivia E." src="/womanart.webp"  />
+                    <IgCard name="Lara T." src="/womanart2.webp"  />
+                    <IgCard name="Linda O." src="/womanart6.webp"  />
 
                     {/* duplicate for seamless loop */}
-                    <IgCard name="Kate G." ariaHidden />
-                    <IgCard name="Olivia E." ariaHidden />
-                    <IgCard name="Lara T." ariaHidden />
-                    <IgCard name="Linda O." ariaHidden />
+                    <IgCard name="Kate G." src="/womanart3.webp" ariaHidden  />
+                    <IgCard name="Olivia E." src="/womanart.webp" ariaHidden  />
+                    <IgCard name="Lara T." src="/womanart2.webp" ariaHidden  />
+                    <IgCard name="Linda O." src="/womanart6.webp" ariaHidden  />
                   </div>
                 </div>
               </div>
@@ -463,7 +482,7 @@ const onT3Scroll = () => {
           </p>
         </div>
         <div className="t3-foot">
-          <span className="t3-name">Melba S.</span>
+          <span className="t3-name">Christina W.</span>
           <span className="t3-verified">
             <span className="t3-badge" aria-hidden="true">✔</span>
             Verified Buyer
@@ -524,7 +543,7 @@ const onT3Scroll = () => {
             </p>
           </div>
           <div className="t3-foot">
-            <span className="t3-name">Melba S.</span>
+            <span className="t3-name">Christina W.</span>
             <span className="t3-verified">
               <span className="t3-badge" aria-hidden="true">✔</span>
               Verified Buyer
@@ -545,7 +564,8 @@ const onT3Scroll = () => {
 
 
 
-      {/* GUARANTEE (FINAL) */}
+      
+      {/* GUARANTEE */}
 <section className="guar" aria-label="7 day money back guarantee">
   <div className="container">
     <div className="guar-card">
@@ -566,30 +586,133 @@ const onT3Scroll = () => {
   </div>
 </section>
 
+{/* FAQ (FINAL) */}
+<FaqSection isMobile={isMobile} />
+
       <div id="enroll" style={{ height: 1 }} />
     </>
   );
 }
 
-function IgCard({ name, ariaHidden = false }) {
+
+function FaqSection({ isMobile }) {
+  const items = [
+    {
+      q: "Why is so Affordable?",
+      a: "The course usually costs $97, which many successful students have found to be a great value. However, to gather more success stories and testimonials, it’s currently available for just $17. This limited-time offer is your chance to enhance your candle-making skills without breaking the bank. Once enough testimonials are collected, the price will return to $97. Don't miss out!.",
+    },
+    {
+      q: "How does the course work?",
+      a: "The course is in PDF (ebook) format, once purchased you can download it and watch it whenever you want and from wherever you want, either on your phone or your computer",
+    },
+    {
+      q: "How do I get the certificates?",
+      a: "After you finish the Candlepreneur Accelerator Course, email candlepreneurcare@gmail.com confirming you completed the course, and we will send your completion certificate.",
+    },
+    {
+      q: "How can I access my ebook?",
+      a: "After you make the purchase, your access to the course will be sent to the email address you registered when you purchased the course. You will create your access password and directly access the course, allowing you to participate and access all the materials included.",
+    },
+    {
+      q: "Will you also help me after the course?",
+      a: "Yes, you can write to us anytime at our support email candlepreneurcare@gmail.com, our experts are always available.",
+    },
+    {
+      q: "Is it safe to buy this course?",
+      a: "Yes, we work with one of the largest and most reliable online course platforms in the USA. The purchase is 100% secure and protected by SSL.",
+    },
+    {
+      q: "Are there any guarantees for this course?",
+      a: "That is, if within 7 days, for whatever reason, you feel that the course is not good, that it has not met your expectations, or that it has not recouped your investment",
+    },
+  ];
+  const [open, setOpen] = useState([]);
+
+  useEffect(() => {
+    // When switching between desktop/mobile, keep everything closed by default.
+    setOpen([]);
+  }, [isMobile]);
+
+  const isOpen = (idx) => open.includes(idx);
+
+
+  const toggle = (idx) => {
+    setOpen((prev) => {
+      const currentlyOpen = prev.includes(idx);
+      if (isMobile) return currentlyOpen ? [] : [idx];
+      // desktop: multi-open
+      if (currentlyOpen) return prev.filter((i) => i !== idx);
+      return [...prev, idx];
+    });
+  };
+
+  return (
+    <section className="faq" aria-label="Frequently asked questions">
+      <div className="container">
+        <h2 className="faq-title">Any questions? Let us answer them</h2>
+
+        <div className="faq-list">
+          {items.map((item, idx) => (
+            <div className={"faq-item" + (isOpen(idx) ? " is-open" : "")} key={item.q}>
+              <button
+                type="button"
+                className="faq-q"
+                aria-expanded={isOpen(idx)}
+                onClick={() => toggle(idx)}
+              >
+                <span className="faq-qText">{item.q}</span>
+                <span className="faq-chev" aria-hidden="true" />
+              </button>
+
+              <div className="faq-a">
+                {item.a}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+function IgCard({ name, src, ariaHidden = false }) {
   return (
     <div className="ig-card" aria-hidden={ariaHidden ? "true" : undefined}>
       <div className="ig-top">
-        <div className="ig-avatar" />
+        <div className="ig-avatar" aria-hidden="true" />
         <div className="ig-name">{name}</div>
-        <div className="ig-dots">⋮</div>
+        <div className="ig-dots" aria-hidden="true">⋮</div>
       </div>
 
-      <div className="ig-photo placeholder">Photo</div>
+      <div className="ig-photo">
+        <img className="ig-img" src={src} alt="" loading="lazy" />
+      </div>
 
-      <div className="ig-bottom">
-        <span className="ig-like">♥</span>
-        <span className="ig-ico">💬</span>
-        <span className="ig-ico">✈</span>
+      <div className="ig-bottom" aria-hidden="true">
+        <span className="ig-btn" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M20.8 4.6c-1.6-1.6-4.1-1.6-5.7 0L12 7.7 8.9 4.6c-1.6-1.6-4.1-1.6-5.7 0-1.6 1.6-1.6 4.1 0 5.7L12 19.1l8.8-8.8c1.6-1.6 1.6-4.1 0-5.7z"/>
+          </svg>
+        </span>
+
+        <span className="ig-btn" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+          </svg>
+        </span>
+
+        <span className="ig-btn" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M22 2 11 13"/>
+            <path d="M22 2 15 22 11 13 2 9 22 2z"/>
+          </svg>
+        </span>
       </div>
     </div>
   );
 }
+
 
 /* =========================
    TESTIMONIALS (ANTIGOS - CAROUSEL)
