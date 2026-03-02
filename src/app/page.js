@@ -136,7 +136,7 @@ function TestimonialsCarousel() {
         name: "Emily",
         img: "/emily.webp",
         text:
-          "“The private Facebook group is a game-changer. I’ve learned so much from the community and feel supported every step of the way. If you’re thinking about starting a candle business, this is the place to start!”",
+          "“This course gave me a real plan instead of just motivation. Having proven templates and clear instructions made me feel prepared to take action and treat my candle business seriously from day one”",
       },
     ],
     []
