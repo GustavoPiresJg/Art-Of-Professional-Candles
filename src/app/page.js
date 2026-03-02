@@ -17,6 +17,7 @@ export default function Home() {
           className="mday-img"
         />
       </div>
+
       {/* HERO */}
       <section className="hero">
         <div className="container hero-grid">
@@ -111,6 +112,105 @@ export default function Home() {
             </a>
 
             <img className="cards-img" src="/cards.webp" alt="Accepted payment methods" />
+          </div>
+        </div>
+      </section>
+
+      {/* OUR PROMISE (NOVA SEÇÃO) */}
+      <section className="promise" aria-label="Our Promise">
+        <div className="promise-top">
+          <div className="container">
+            <h2 className="promise-title">Our Promise</h2>
+
+            <div className="promise-grid">
+              <div className="promise-col">
+                <h3 className="promise-sub">Say Goodbye to Financial Stress</h3>
+
+                <ul className="promise-list">
+                  <li>
+                    <span className="p-bold">No More Guesswork:</span> Follow our proven, step-by-step system to create and sell beautiful candles.
+                  </li>
+                  <li>
+                    <span className="p-bold">No More Time Wasted:</span> Work on your own schedule and spend more time with your family.
+                  </li>
+                  <li>
+                    <span className="p-bold">No More Fear of Failure:</span> Use ready-to-go templates and simple instructions that keep you on track.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="promise-center" aria-hidden="true">
+                {/* IMAGEM ÚNICA DO LIVRO */}
+                <img className="promise-book" src="/CANDLEPRENEUR-ACCELERATOR.webp" alt="" />
+              </div>
+
+              <div className="promise-col">
+                <h3 className="promise-sub">Meet the Candle-Making Course Designed for You!</h3>
+
+                <ul className="promise-list">
+                  <li>
+                    Our course is designed to simplify your journey and help you turn your passion for candles into a thriving business.
+                  </li>
+                  <li>
+                    With easy-to-follow lessons, expert guidance, and proven templates, you’ll be creating and selling candles in no time!
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="promise-bottom">
+          <div className="container">
+            {/* ÍCONES */}
+            <div className="benefits">
+              <div className="benefit">
+                <img className="benefit-ico" src="/Beginner-Friendly.webp" alt="Beginner-Friendly" />
+                <div className="benefit-txt">BEGINNER-<br />FRIENDLY</div>
+              </div>
+
+              <div className="benefit">
+                <img className="benefit-ico" src="/Step-by-Step.webp" alt="Step-by-Step" />
+                <div className="benefit-txt">STEP-BY-STEP<br />FORMAT</div>
+              </div>
+
+              <div className="benefit">
+                <img className="benefit-ico" src="/Lifetime-Access.webp" alt="Lifetime Access" />
+                <div className="benefit-txt">LIFETIME<br />ACCESS</div>
+              </div>
+
+              <div className="benefit">
+                <img className="benefit-ico" src="/Risk-free.webp" alt="Risk-Free Guarantee" />
+                <div className="benefit-txt">RISK-FREE<br />GUARANTEE</div>
+              </div>
+
+              <div className="benefit">
+                <img className="benefit-ico" src="/Supportive-Community.webp" alt="Supportive Support" />
+                <div className="benefit-txt">SUPPORTIVE<br />SUPPORT</div>
+              </div>
+
+              <div className="benefit">
+                <img className="benefit-ico" src="/Affordable.webp" alt="Affordable Start" />
+                <div className="benefit-txt">AFFORDABLE<br />START</div>
+              </div>
+            </div>
+
+            {/* PROVA SOCIAL */}
+            <div className="promise-proof">
+              <div className="promise-rating">
+                <strong>4.89</strong> out of 5 based
+              </div>
+              <div className="promise-customers">10,000+ Satisfied Customers</div>
+            </div>
+
+            {/* CTA + CARDS */}
+            <div className="promise-cta-wrap">
+              <a className="cta promise-cta" href="#enroll">
+                YES! Enroll NOW <span className="cta-arrow">→</span>
+              </a>
+
+              <img className="cards-img" src="/cards.webp" alt="Accepted payment methods" />
+            </div>
           </div>
         </div>
       </section>
