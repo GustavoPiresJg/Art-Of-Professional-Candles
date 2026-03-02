@@ -75,58 +75,37 @@ const onT3Scroll = () => {
 
             {/* CAROUSEL */}
             <div className="hero-right" aria-label="Student results carousel">
-              {/* DESKTOP: 2 vertical columns (loop) */}
               <div className="vcols vcols--masked">
-                {/* LEFT (moves DOWN) */}
-                <div className="vcol vcol-down">
-                  <div className="vtrack">
-                    <IgCard name="Lara T." src="/womanart2.webp" />
-                    <IgCard name="Olivia E." src="/womanart.webp" />
-                    <IgCard name="Emma S." src="/womanart7.webp" />
-                    <IgCard name="Jane H." src="/womanart4.webp" />
-
-                    {/* duplicate for seamless loop */}
-                    <IgCard name="Lara T." src="/womanart2.webp" ariaHidden />
-                    <IgCard name="Olivia E." src="/womanart.webp" ariaHidden />
-                    <IgCard name="Emma S." src="/womanart7.webp" ariaHidden />
-                    <IgCard name="Jane H." src="/womanart4.webp" ariaHidden />
-                  </div>
-                </div>
-
-                {/* RIGHT (moves UP) */}
+                {/* COL A (moves up) */}
                 <div className="vcol vcol-up">
                   <div className="vtrack">
-                    <IgCard name="Karen J." src="/womanart5.webp" />
-                    <IgCard name="Kate G." src="/womanart3.webp" />
-                    <IgCard name="Linda O." src="/womanart6.webp" />
+                    <IgCard name="Lara T." src="/womanart2.webp"  />
+                    <IgCard name="Kate G." src="/womanart3.webp"  />
+                    <IgCard name="Emma S." src="/womanart7.webp"  />
+                    <IgCard name="Olivia E." src="/womanart.webp"  />
 
                     {/* duplicate for seamless loop */}
-                    <IgCard name="Karen J." src="/womanart5.webp" ariaHidden />
-                    <IgCard name="Kate G." src="/womanart3.webp" ariaHidden />
-                    <IgCard name="Linda O." src="/womanart6.webp" ariaHidden />
+                    <IgCard name="Lara T." src="/womanart2.webp" ariaHidden  />
+                    <IgCard name="Kate G." src="/womanart3.webp" ariaHidden  />
+                    <IgCard name="Emma S." src="/womanart7.webp" ariaHidden  />
+                    <IgCard name="Olivia E." src="/womanart.webp" ariaHidden  />
                   </div>
                 </div>
-              </div>
 
-              {/* MOBILE: horizontal carousel (loop) */}
-              <div className="ig-carousel" aria-label="Student photos carousel">
-                <div className="ig-carouselTrack">
-                  <IgCard name="Emma S." src="/womanart7.webp" ariaHidden />
-                  <IgCard name="Karen J." src="/womanart5.webp" ariaHidden />
-                  <IgCard name="Linda O." src="/womanart6.webp" ariaHidden />
-                  <IgCard name="Lara T." src="/womanart2.webp" ariaHidden />
-                  <IgCard name="Kate G." src="/womanart3.webp" ariaHidden />
-                  <IgCard name="Olivia E." src="/womanart.webp" ariaHidden />
-                  <IgCard name="Jane H." src="/womanart4.webp" ariaHidden />
+                {/* COL B (moves down) */}
+                <div className="vcol vcol-down">
+                  <div className="vtrack">
+                    <IgCard name="Kate G." src="/womanart3.webp"  />
+                    <IgCard name="Olivia E." src="/womanart.webp"  />
+                    <IgCard name="Lara T." src="/womanart2.webp"  />
+                    <IgCard name="Linda O." src="/womanart6.webp"  />
 
-                  {/* duplicate for seamless loop */}
-                  <IgCard name="Emma S." src="/womanart7.webp" ariaHidden />
-                  <IgCard name="Karen J." src="/womanart5.webp" ariaHidden />
-                  <IgCard name="Linda O." src="/womanart6.webp" ariaHidden />
-                  <IgCard name="Lara T." src="/womanart2.webp" ariaHidden />
-                  <IgCard name="Kate G." src="/womanart3.webp" ariaHidden />
-                  <IgCard name="Olivia E." src="/womanart.webp" ariaHidden />
-                  <IgCard name="Jane H." src="/womanart4.webp" ariaHidden />
+                    {/* duplicate for seamless loop */}
+                    <IgCard name="Kate G." src="/womanart3.webp" ariaHidden  />
+                    <IgCard name="Olivia E." src="/womanart.webp" ariaHidden  />
+                    <IgCard name="Lara T." src="/womanart2.webp" ariaHidden  />
+                    <IgCard name="Linda O." src="/womanart6.webp" ariaHidden  />
+                  </div>
                 </div>
               </div>
             </div>
