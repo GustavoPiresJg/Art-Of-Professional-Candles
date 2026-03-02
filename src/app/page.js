@@ -6,13 +6,17 @@ import { useEffect, useMemo, useRef, useState } from "react";
 export default function Home() {
   return (
     <>
-      {/* TOP STRIP */}
-      <div className="top-strip">
-        <div className="container">
-          <p>MOTHERS DAY IS LIVE NOW</p>
-        </div>
+      {/* MOTHERS DAY TOP BANNER (NÃO STICKY) */}
+      <div className="mday-banner" aria-label="Mothers Day banner">
+        <Image
+          src="/mothers-day.webp"
+          alt="Mothers Day is live now"
+          fill
+          priority
+          sizes="100vw"
+          className="mday-img"
+        />
       </div>
-
       {/* HERO */}
       <section className="hero">
         <div className="container hero-grid">
@@ -211,7 +215,6 @@ function TestimonialsCarousel() {
         {items.map((t) => (
           <div className="t-slide" key={t.name}>
             <div className="t-card">
-              {/* FOTO REAL */}
               <div className="t-photo" aria-hidden="true">
                 <Image
                   src={t.img}
@@ -241,7 +244,6 @@ function TestimonialsCarousel() {
         ))}
       </div>
 
-      {/* DOTS: desktop hidden via CSS, mobile shows */}
       <div className="t-dots" aria-label="testimonial pagination">
         {items.map((_, i) => (
           <button
