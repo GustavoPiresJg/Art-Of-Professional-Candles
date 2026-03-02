@@ -463,7 +463,7 @@ const onT3Scroll = () => {
           </p>
         </div>
         <div className="t3-foot">
-          <span className="t3-name">Melba S.</span>
+          <span className="t3-name">Christina W.</span>
           <span className="t3-verified">
             <span className="t3-badge" aria-hidden="true">✔</span>
             Verified Buyer
@@ -524,7 +524,7 @@ const onT3Scroll = () => {
             </p>
           </div>
           <div className="t3-foot">
-            <span className="t3-name">Melba S.</span>
+            <span className="t3-name">Christina W.</span>
             <span className="t3-verified">
               <span className="t3-badge" aria-hidden="true">✔</span>
               Verified Buyer
@@ -544,27 +544,6 @@ const onT3Scroll = () => {
 
 
 
-
-      {/* GUARANTEE (FINAL) */}
-<section className="guar" aria-label="7 day money back guarantee">
-  <div className="container">
-    <div className="guar-card">
-      <div className="guar-left" aria-hidden="true">
-        <img className="guar-badge" src="/guarantee.webp" alt="" />
-      </div>
-
-      <div className="guar-right">
-        <h3 className="guar-title">Customer Satisfaction Is Our #1 Priority!</h3>
-
-        <p className="guar-text">
-          We make sure you’re happy with your purchase. You’ll love the course, but in case you don’t, you can
-          simply <strong>return it within 7 days</strong>, and we’ll give you a <strong>full refund</strong> no
-          questions asked. It’s that simple!
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
       <div id="enroll" style={{ height: 1 }} />
     </>
