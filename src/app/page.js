@@ -116,7 +116,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OUR PROMISE (NOVA SEÇÃO) */}
+      {/* OUR PROMISE */}
       <section className="promise" aria-label="Our Promise">
         <div className="promise-top">
           <div className="container">
@@ -140,7 +140,6 @@ export default function Home() {
               </div>
 
               <div className="promise-center" aria-hidden="true">
-                {/* IMAGEM ÚNICA DO LIVRO */}
                 <img className="promise-book" src="/CANDLEPRENEUR-ACCELERATOR.webp" alt="" />
               </div>
 
@@ -162,7 +161,6 @@ export default function Home() {
 
         <div className="promise-bottom">
           <div className="container">
-            {/* ÍCONES */}
             <div className="benefits">
               <div className="benefit">
                 <img className="benefit-ico" src="/Beginner-Friendly.webp" alt="Beginner-Friendly" />
@@ -185,8 +183,8 @@ export default function Home() {
               </div>
 
               <div className="benefit">
-                <img className="benefit-ico" src="/Supportive-Community.webp" alt="Supportive Support" />
-                <div className="benefit-txt">SUPPORTIVE<br />SUPPORT</div>
+                <img className="benefit-ico" src="/Supportive-Community.webp" alt="Supportive Community" />
+                <div className="benefit-txt">SUPPORTIVE<br />COMMUNITY</div>
               </div>
 
               <div className="benefit">
@@ -195,7 +193,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* PROVA SOCIAL */}
             <div className="promise-proof">
               <div className="promise-rating">
                 <strong>4.89</strong> out of 5 based
@@ -203,7 +200,6 @@ export default function Home() {
               <div className="promise-customers">10,000+ Satisfied Customers</div>
             </div>
 
-            {/* CTA + CARDS */}
             <div className="promise-cta-wrap">
               <a className="cta promise-cta" href="#enroll">
                 YES! Enroll NOW <span className="cta-arrow">→</span>
@@ -211,6 +207,26 @@ export default function Home() {
 
               <img className="cards-img" src="/cards.webp" alt="Accepted payment methods" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT'S INCLUDED */}
+      <section className="included" aria-label="What's Included bonuses">
+        <div className="container">
+          <h2 className="included-title">
+            What&apos;s Included? Unlock <br className="included-br" />
+            Over $97 Worth of Bonuses Today Only!
+          </h2>
+
+          <IncludedCarousel />
+
+          <div className="included-cta-wrap">
+            <a className="cta included-cta" href="#enroll">
+              YES! Enroll NOW <span className="cta-arrow">→</span>
+            </a>
+
+            <img className="cards-img included-cards" src="/cards.webp" alt="Accepted payment methods" />
           </div>
         </div>
       </section>
@@ -472,6 +488,250 @@ function ReasonsCarousel() {
             type="button"
             className={`r-dot ${active === i ? "is-active" : ""}`}
             aria-label={`Go to reason ${i + 1}`}
+            onClick={() => goTo(i)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function IncludedCarousel() {
+  const items = useMemo(
+    () => [
+      {
+        key: "soy",
+        type: "ebook",
+        img: "/soy-wax.webp",
+        title: "Soy Candle Making Essentials (Ebook)",
+        text:
+          "Learn the essentials of soy candles, including wax selection, wick pairing, and clean-burning techniques.",
+      },
+      {
+        key: "aroma",
+        type: "ebook",
+        img: "/aromatheraphy.webp",
+        title: "Essential Guide to Aromatherapy Candles (Ebook)",
+        text:
+          "Create premium aromatherapy candles with fragr ance blending tips and simple, professional methods.",
+      },
+      {
+        key: "biz",
+        type: "ebook",
+        img: "/building-your-candle.webp",
+        title: "Build Your Candle Business From Scratch (Ebook)",
+        text:
+          "Turn your candle-making hobby into a real business with guidance on pricing, marketing, and sales.",
+      },
+      {
+        key: "mold",
+        type: "ebook",
+        img: "/complete-guilde.webp",
+        title: "Complete Guide to Molded Candles (Ebook)",
+        text:
+          "Discover how to make stunning molded candles with step-by-step methods and practical tips.",
+      },
+      {
+        key: "pro",
+        type: "ebook",
+        img: "/art-of-professional.webp",
+        title: "Art of Professional Candles (Ebook)",
+        text:
+          "Level up your craft with advanced finishing, aesthetics, and techniques that make candles look premium.",
+      },
+      {
+        key: "tips",
+        type: "info",
+        title: "Bonus Tips & Execution Guides",
+        text:
+          "Get extra tips, execution checklists, and quick fixes to avoid common mistakes and speed up your results.",
+      },
+      {
+        key: "cert",
+        type: "info",
+        img: "/certificate.webp",
+        title: "Certificate After You Finish The Course",
+        text:
+          "After completing Candlepreneur Accelerator, you’ll unlock your official course certificate to showcase your progress.",
+      },
+    ],
+    []
+  );
+
+  const trackRef = useRef(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    // 1) Scroll normal (para dots)
+    const onScroll = () => {
+      const children = Array.from(el.children);
+      if (!children.length) return;
+
+      const center = el.scrollLeft + el.clientWidth / 2;
+
+      let bestIndex = 0;
+      let bestDist = Infinity;
+
+      children.forEach((child, idx) => {
+        const childCenter = child.offsetLeft + child.clientWidth / 2;
+        const dist = Math.abs(childCenter - center);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIndex = idx;
+        }
+      });
+
+      setActive(bestIndex);
+    };
+
+    // 2) Wheel vertical -> scroll horizontal (PC)
+    const onWheel = (e) => {
+      // trackpad horizontal: deixa passar
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    };
+
+    // 3) Drag com mouse
+    let isDown = false;
+    let startX = 0;
+    let startLeft = 0;
+
+    const onDown = (e) => {
+      isDown = true;
+      startX = e.clientX;
+      startLeft = el.scrollLeft;
+      el.classList.add("is-dragging");
+      el.setPointerCapture?.(e.pointerId);
+    };
+
+    const onMove = (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      el.scrollLeft = startLeft - dx;
+    };
+
+    const onUp = () => {
+      isDown = false;
+      el.classList.remove("is-dragging");
+    };
+
+    onScroll();
+    el.addEventListener("scroll", onScroll, { passive: true });
+    el.addEventListener("wheel", onWheel, { passive: false });
+    el.addEventListener("pointerdown", onDown);
+    el.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("pointerdown", onDown);
+      el.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+    };
+  }, []);
+
+  const goTo = (i) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const child = el.children[i];
+    if (!child) return;
+    el.scrollTo({
+      left: child.offsetLeft - (el.clientWidth - child.clientWidth) / 2,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="inc-wrap">
+      <div className="inc-track" ref={trackRef}>
+        {items.map((it) => (
+          <div className="inc-slide" key={it.key}>
+            <div className="inc-card">
+              <div className="inc-media" aria-hidden="true">
+                {it.type === "ebook" ? (
+                  <>
+                    <div className="inc-badge" aria-hidden="true">
+                      <div className="inc-badge-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                          <path
+                            d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+                            stroke="white"
+                            strokeWidth="2"
+                          />
+                          <path
+                            d="M9 7h6M9 11h8M9 15h8"
+                            stroke="white"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </div>
+                      <div className="inc-badge-txt">E-BOOK</div>
+                    </div>
+
+                    <Image
+                      src={it.img}
+                      alt={it.title}
+                      fill
+                      sizes="(max-width: 900px) 86vw, 360px"
+                      className="inc-img"
+                    />
+                  </>
+                ) : it.img ? (
+                  <Image
+                    src={it.img}
+                    alt={it.title}
+                    fill
+                    sizes="(max-width: 900px) 86vw, 360px"
+                    className="inc-img"
+                  />
+                ) : (
+                  <div className="inc-iconBox">
+                    <div className="inc-bigIcon" aria-hidden="true">
+                      <svg viewBox="0 0 64 64" width="90" height="90" fill="none">
+                        <path
+                          d="M20 10h24a6 6 0 0 1 6 6v34a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V16a6 6 0 0 1 6-6Z"
+                          fill="#ffffff"
+                          stroke="#c96a45"
+                          strokeWidth="4"
+                        />
+                        <path
+                          d="M26 18h12M24 28h16M24 36h16M24 44h12"
+                          stroke="#8a8a8a"
+                          strokeWidth="4"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M30 6h4a4 4 0 0 1 4 4v4H26v-4a4 4 0 0 1 4-4Z"
+                          fill="#6b7a89"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="inc-body">
+                <div className="inc-h">{it.title}</div>
+                <p className="inc-p">{it.text}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="inc-dots" aria-label="included pagination">
+        {items.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            className={`inc-dot ${active === i ? "is-active" : ""}`}
+            aria-label={`Go to bonus ${i + 1}`}
             onClick={() => goTo(i)}
           />
         ))}
