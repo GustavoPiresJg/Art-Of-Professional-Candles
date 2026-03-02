@@ -257,30 +257,6 @@ export default function Home() {
         </div>
       </section>
 
-{/* FINAL SCREEN (DEPOIS DO OFFER) */}
-<section className="closing" aria-label="Final message">
-  <div className="container">
-    <div className="closing-inner">
-      <h2 className="closing-title">
-        Starting a Profitable Candle
-        Business Has Never Been
-        Easier!
-      </h2>
-
-      <p className="closing-text">No more guesswork or expensive trial-and-error!</p>
-
-      <p className="closing-text">
-        With our step-by-step course, you&apos;ll learn how to create beautiful, handmade candles and build a
-        profitable business all from the comfort of your home.
-      </p>
-
-      <p className="closing-text">
-        Enjoy the freedom and flexibility of being your own boss, without breaking the bank.
-      </p>
-    </div>
-  </div>
-</section>
-
       <div id="enroll" style={{ height: 1 }} />
     </>
   );
@@ -558,7 +534,7 @@ function OfferCard() {
         if (next > max) next = max;
         return next;
       });
-    }, 3000);
+    }, 3000); // <<< AQUI: velocidade de troca (ms). Aumenta = mais lento
 
     return () => clearInterval(id);
   }, []);
@@ -568,37 +544,36 @@ function OfferCard() {
       <div className="offer-media" aria-hidden="true">
         <img className="offer-media-img" src="/computer.webp" alt="" />
       </div>
+{/* Mini testimonial (DESKTOP: abaixo da imagem) */}
+<div className="offer-mini offer-mini--desktop">
+  <div className="offer-miniCard">
+    {/* star.webp = imagem única com as 5 estrelas */}
+    <img className="offer-miniStarsImg" src="/star.webp" alt="5 star rating" />
 
-      {/* Mini testimonial (DESKTOP: abaixo da imagem) */}
-      <div className="offer-mini offer-mini--desktop">
-        <div className="offer-miniCard">
-          <img className="offer-miniStarsImg" src="/star.webp" alt="5 star rating" />
+    <div className="offer-miniTitle">Regained My Confidence!</div>
 
-          <div className="offer-miniTitle">Regained My Confidence!</div>
+    <p className="offer-miniText">
+      “I was skeptical at first, but this course has completely exceeded my expectations! It’s so easy to
+      follow, and I’ve already made my first sale. I finally feel confident in my ability to run my own
+      business!”
+    </p>
 
-          <p className="offer-miniText">
-            “I was skeptical at first, but this course has completely exceeded my expectations! It’s so easy to
-            follow, and I’ve already made my first sale. I finally feel confident in my ability to run my own
-            business!”
-          </p>
-
-          <div className="offer-miniFoot">
-            <span className="offer-miniName">Alysha H.</span>
-            
-            <span className="offer-miniVerified">Verified Buyer</span>
-            
-          </div>
-        </div>
-      </div>
+    <div className="offer-miniFoot">
+      <span className="offer-miniName">Alysha H.</span>
+      <span className="offer-miniVerified">Verified Buyer</span>
+    </div>
+  </div>
+</div>
 
       <div className="offer-body">
         <div className="offer-head">
           <div className="offer-titleRow">
-            <div className="offer-title">ART OF PROFESSIONAL CANDLES</div>
+            <div className="offer-title">THE ART OF CANDLE MAKING</div>
             <div className="offer-pill">Almost gone</div>
           </div>
 
           <div className="offer-reviewsRow">
+            {/* star.webp = imagem única com as 5 estrelas */}
             <img className="offer-starsImg" src="/star.webp" alt="5 star rating" />
             <div className="offer-reviewsTxt">10,084 Reviews</div>
           </div>
@@ -618,42 +593,52 @@ function OfferCard() {
             <li>
               <img className="offer-checkImg" src="/check.webp" alt="" aria-hidden="true" />
               <span>
-                Art of Professional Candles <span className="offer-pink">($49 Value)</span>
+                The Art Of Candle Making Manual <span className="offer-pink">($49 Value)</span>
               </span>
             </li>
 
             <li>
               <img className="offer-checkImg" src="/check.webp" alt="" aria-hidden="true" />
               <span>
-                Build Your Candle Business From Scratch <span className="offer-pink">($19 Value)</span>
+                Soy Candles Manual <span className="offer-pink">($10 Value)</span>
               </span>
             </li>
 
             <li>
               <img className="offer-checkImg" src="/check.webp" alt="" aria-hidden="true" />
               <span>
-                Complete Guide to Molded Candles <span className="offer-pink">($15 Value)</span>
+                Aromatherapy Manual <span className="offer-pink">($7 Value)</span>
               </span>
             </li>
 
             <li>
               <img className="offer-checkImg" src="/check.webp" alt="" aria-hidden="true" />
               <span>
-                Essential Guide to Aromatherapy Candles <span className="offer-pink">($15 Value)</span>
+                Mold Candles Manual <span className="offer-pink">($6 Value)</span>
               </span>
             </li>
 
             <li>
               <img className="offer-checkImg" src="/check.webp" alt="" aria-hidden="true" />
               <span>
-                Soy Candle Making Essentials <span className="offer-pink">($10 Value)</span>
+                Launch Your Candle Business Manual <span className="offer-pink">($25 Value)</span>
               </span>
+            </li>
+
+            <li>
+              <img className="offer-checkImg" src="/check.webp" alt="" aria-hidden="true" />
+              <span>List Of Suppliers</span>
+            </li>
+
+            <li>
+              <img className="offer-checkImg" src="/check.webp" alt="" aria-hidden="true" />
+              <span>5 Certificates Recognized Worldwide</span>
             </li>
           </ul>
 
           <div className="offer-price">
             <div className="offer-total">
-              Total Value: <span className="offer-strike">$108</span>
+              Total Value: <span className="offer-strike">$97</span>
             </div>
             <div className="offer-today">
               Today Only: <span className="offer-green">$17</span>
@@ -670,6 +655,7 @@ function OfferCard() {
         {/* Mini testimonial (MOBILE: mantém no final) */}
         <div className="offer-mini offer-mini--mobile">
           <div className="offer-miniCard">
+            {/* star.webp = imagem única com as 5 estrelas */}
             <img className="offer-miniStarsImg" src="/star.webp" alt="5 star rating" />
 
             <div className="offer-miniTitle">Regained My Confidence!</div>
