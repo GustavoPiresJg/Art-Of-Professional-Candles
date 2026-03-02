@@ -243,6 +243,19 @@ export default function Home() {
         </div>
       </section>
 
+{/* OUR COURSE vs. ALTERNATIVES (Support.webp) */}
+<section className="compare" aria-label="Our Course vs Alternatives">
+  <div className="container">
+    <h2 className="compare-title">
+      <span className="compare-pink">Our Course</span> vs. Alternatives
+    </h2>
+
+    <div className="compare-media" aria-hidden="true">
+      <img className="compare-img" src="/Support.webp" alt="" />
+    </div>
+  </div>
+</section>
+
       {/* AVISO (DATE AUTO) */}
       <section className="note" aria-label="Important note">
         <div className="container">
@@ -568,30 +581,37 @@ function OfferCard() {
       <div className="offer-media" aria-hidden="true">
         <img className="offer-media-img" src="/computer.webp" alt="" />
       </div>
+{/* Mini testimonial (DESKTOP: abaixo da imagem) */}
+<div className="offer-mini offer-mini--desktop">
+  <div className="offer-miniCard">
+    <div className="offer-miniPhotoWrap" aria-hidden="true">
+      <img className="offer-miniPhoto" src="/woman.webp" alt="" />
+    </div>
 
-      {/* Mini testimonial (DESKTOP: abaixo da imagem) */}
-      <div className="offer-mini offer-mini--desktop">
-        <div className="offer-miniCard">
-          <img className="offer-miniStarsImg" src="/star.webp" alt="5 star rating" />
+    <div className="offer-miniRight">
+      <img className="offer-miniStarsImg" src="/star.webp" alt="5 star rating" />
 
-          <div className="offer-miniTitle">Regained My Confidence!</div>
+      <div className="offer-miniTitle">Regained My Confidence!</div>
 
-          <p className="offer-miniText">
-            “I was skeptical at first, but this course has completely exceeded my expectations! It’s so easy to
-            follow, and I’ve already made my first sale. I finally feel confident in my ability to run my own
-            business!”
-          </p>
+      <p className="offer-miniText">
+        “I was skeptical at first, but this course has completely exceeded my expectations! It’s so easy to
+        follow, and I’ve already made my first sale. I finally feel confident in my ability to run my own
+        business!”
+      </p>
 
-          <div className="offer-miniFoot">
-            <span className="offer-miniName">Alysha H.</span>
-            
-            <span className="offer-miniVerified">Verified Buyer</span>
-            
-          </div>
-        </div>
+      <div className="offer-miniFoot">
+        <span className="offer-miniName">Alysha H.</span>
+
+        <span className="offer-miniVerified">
+          <span className="offer-miniBadge" aria-hidden="true">✔</span>
+          Verified Buyer
+        </span>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div className="offer-body">
+<div className="offer-body">
         <div className="offer-head">
           <div className="offer-titleRow">
             <div className="offer-title">ART OF PROFESSIONAL CANDLES</div>
@@ -666,27 +686,37 @@ function OfferCard() {
 
           <div className="offer-risk">Try it RISK-FREE for 7 days.</div>
         </div>
+{/* Mini testimonial (MOBILE: mantém no final) */}
+<div className="offer-mini offer-mini--mobile">
+  <div className="offer-miniCard">
+    <div className="offer-miniPhotoWrap" aria-hidden="true">
+      <img className="offer-miniPhoto" src="/woman.webp" alt="" />
+    </div>
 
-        {/* Mini testimonial (MOBILE: mantém no final) */}
-        <div className="offer-mini offer-mini--mobile">
-          <div className="offer-miniCard">
-            <img className="offer-miniStarsImg" src="/star.webp" alt="5 star rating" />
+    <div className="offer-miniRight">
+      <img className="offer-miniStarsImg" src="/star.webp" alt="5 star rating" />
 
-            <div className="offer-miniTitle">Regained My Confidence!</div>
+      <div className="offer-miniTitle">Regained My Confidence!</div>
 
-            <p className="offer-miniText">
-              “I was skeptical at first, but this course has completely exceeded my expectations! It’s so easy to
-              follow, and I’ve already made my first sale. I finally feel confident in my ability to run my own
-              business!”
-            </p>
+      <p className="offer-miniText">
+        “I was skeptical at first, but this course has completely exceeded my expectations! It’s so easy to
+        follow, and I’ve already made my first sale. I finally feel confident in my ability to run my own
+        business!”
+      </p>
 
-            <div className="offer-miniFoot">
-              <span className="offer-miniName">Alysha H.</span>
-              <span className="offer-miniVerified">Verified Buyer</span>
-            </div>
-          </div>
-        </div>
+      <div className="offer-miniFoot">
+        <span className="offer-miniName">Alysha H.</span>
+
+        <span className="offer-miniVerified">
+          <span className="offer-miniBadge" aria-hidden="true">✔</span>
+          Verified Buyer
+        </span>
       </div>
+    </div>
+  </div>
+</div>
+
+</div>
     </div>
   );
 }

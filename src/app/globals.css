@@ -1456,3 +1456,159 @@ img { display: block; max-width: 100%; }
     margin-bottom: 22px;
   }
 }
+
+/* =========================
+   OUR COURSE vs. ALTERNATIVES (Support.webp)
+========================= */
+.compare{
+  background: #fff;
+  padding: 84px 0 96px;
+}
+
+.compare-title{
+  margin: 0 0 38px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 44px;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+  color: #0b0b0b;
+}
+
+.compare-pink{ color: var(--pink); }
+
+.compare-media{
+  width: min(980px, 100%);
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.compare-img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 900px){
+  .compare{
+    padding: 54px 0 66px;
+  }
+
+  .compare-title{
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.05;
+  }
+
+  .compare-media{
+    width: 100%;
+  }
+
+  /* maior + mais "achatada" (sem ficar estranho) */
+  .compare-img{
+    width: 112%;
+    max-width: none;
+    transform: translateX(-6%) scaleY(0.84);
+    transform-origin: top center;
+  }
+}
+
+/* =========================
+   OFFER MINI TESTIMONIAL (COM FOTO)
+========================= */
+.offer-miniCard{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.offer-miniPhotoWrap{
+  width: 92px;
+  height: 92px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+  flex: 0 0 92px;
+}
+
+.offer-miniPhoto{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.offer-miniRight{
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.offer-miniStarsImg{
+  height: 18px;
+  width: auto;
+  display: block;
+  margin: 0 0 8px;
+}
+
+.offer-miniTitle{
+  text-align: left;
+  font-weight: 900;
+  color: var(--pink);
+  margin: 0 0 8px;
+}
+
+.offer-miniText{
+  margin: 0;
+  text-align: left;
+  color: #111;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.offer-miniFoot{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.offer-miniName{
+  font-weight: 900;
+  color: #111;
+}
+
+.offer-miniVerified{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #111;
+  font-weight: 700;
+}
+
+.offer-miniBadge{
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: #1dbf73;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+@media (max-width: 900px){
+  .offer-miniPhotoWrap{
+    width: 96px;
+    height: 96px;
+    border-radius: 18px;
+    flex-basis: 96px;
+  }
+.offer-miniText{
+    font-size: 16px;
+  }
+}
