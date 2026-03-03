@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 
 const HOTMART_URL = "https://pay.hotmart.com/A104700865U?off=u3vrxfoz&checkoutMode=10";
-export default function Home() {// Testimonials carousel (mobile)
+export default function Home() {
 const t3Ref = useRef(null);
 const [t3Active, setT3Active] = useState(0);
 
@@ -63,7 +63,6 @@ const onT3Scroll = () => {
 
   return (
     <>
-      {/* MOTHERS DAY TOP BANNER (NÃO STICKY) */}
       <div className="mday-banner" aria-label="Mothers Day banner">
         <Image
           src="/mothers-day.webp"
@@ -139,7 +138,7 @@ const onT3Scroll = () => {
       {/* SPACER */}
       <div className="section-gap" />
 
-      {/* TESTIMONIALS (ANTIGOS - NÃO MEXE) */}
+      {/* TESTIMONIALS*/}
       <section className="testimonials" aria-label="Student testimonials">
         <div className="container">
           <h2 className="testimonials-title">Here&apos;s What Our Students Are Saying...</h2>
@@ -285,7 +284,7 @@ const onT3Scroll = () => {
         </div>
       </section>
 
-      {/* NOVA SEÇÃO DEPOIMENTOS (DEPOIS DO INCLUDED) */}
+      {/* INCLUDED */}
       <section className="testimonials2" aria-label="Happy students testimonials">
         <div className="container">
           <h2 className="testimonials2-title">
@@ -299,21 +298,21 @@ const onT3Scroll = () => {
 
 
 
-      {/* AVISO (DATE AUTO) */}
+      {/*DATE AUTO*/}
       <section className="note" aria-label="Important note">
         <div className="container">
           <AlertNote />
         </div>
       </section>
 
-      {/* OFFER CARD (computer.webp + live people) */}
+      {/* OFFER CARD*/}
       <section className="offer" aria-label="Offer and secure checkout">
         <div className="container">
           <OfferCard />
         </div>
       </section>
 
-{/* FINAL SCREEN (DEPOIS DO OFFER) */}
+{/* FINAL SCREEN */}
 <section className="closing" aria-label="Final message">
   <div className="container">
     <div className="closing-inner">
@@ -343,12 +342,12 @@ const onT3Scroll = () => {
       <span className="compare-pink">Our Course</span> vs  Alternatives
     </h2>
 
-    {/* DESKTOP/TABLET: imagem pronta */}
+    {/* DESKTOP/TABLET*/}
     <div className="compare-media compare-media--desktop" aria-hidden="true">
       <img className="compare-img" src="/Support.webp" alt="" />
     </div>
 
-    {/* MOBILE: versão feita por código (mais legível e "espremida") */}
+    {/* MOBILE*/}
     <div className="compare-mobile compare-media--mobile" aria-hidden="true">
       <div className="compare-grid">
         <div className="compare-col compare-col--labels">
@@ -434,7 +433,7 @@ const onT3Scroll = () => {
   </div>
 </section>
 
-{/* TESTIMONIALS (FINAL) */}
+{/* TESTIMONIALS*/}
 <section className="t3" aria-label="More testimonials">
   <div className="container">
     <div className="t3-grid t3-grid--desktop" aria-hidden="true">
@@ -635,7 +634,6 @@ function FaqSection({ isMobile }) {
   const [open, setOpen] = useState([]);
 
   useEffect(() => {
-    // When switching between desktop/mobile, keep everything closed by default.
     setOpen([]);
   }, [isMobile]);
 
@@ -646,7 +644,6 @@ function FaqSection({ isMobile }) {
     setOpen((prev) => {
       const currentlyOpen = prev.includes(idx);
       if (isMobile) return currentlyOpen ? [] : [idx];
-      // desktop: multi-open
       if (currentlyOpen) return prev.filter((i) => i !== idx);
       return [...prev, idx];
     });
@@ -721,7 +718,7 @@ function IgCard({ name, src, ariaHidden = false }) {
 
 
 /* =========================
-   TESTIMONIALS (ANTIGOS - CAROUSEL)
+   TESTIMONIALS
 ========================= */
 function TestimonialsCarousel() {
   const items = useMemo(
@@ -842,9 +839,6 @@ function TestimonialsCarousel() {
   );
 }
 
-/* =========================
-   NEW TESTIMONIALS (3 on PC, swipe on mobile)
-========================= */
 function TestimonialsShowcase() {
   const items = useMemo(
     () => [
@@ -954,7 +948,7 @@ function AlertNote() {
 }
 
 /* =========================
-   OFFER CARD (NEW)
+   OFFER CARD
 ========================= */
 function OfferCard() {
   const [people, setPeople] = useState(211);
@@ -983,7 +977,6 @@ function OfferCard() {
         <img className="offer-media-img" src="/computer.webp" alt="" />
       </div>
 
-      {/* Mini testimonial (DESKTOP: abaixo da imagem) */}
       <div className="offer-mini offer-mini--desktop">
         <div className="offer-miniCard">
           <div className="offer-miniPhotoWrap" aria-hidden="true">
@@ -1091,7 +1084,7 @@ function OfferCard() {
           <div className="offer-risk">Try it RISK-FREE for 7 days.</div>
         </div>
 
-        {/* Mini testimonial (MOBILE: mantém no final) */}
+
         <div className="offer-mini offer-mini--mobile">
           <div className="offer-miniCard">
             <div className="offer-miniPhotoWrap" aria-hidden="true">
@@ -1910,7 +1903,6 @@ function PolicyModal({ open, title, onClose, children }) {
   useEffect(() => {
     if (!open) return;
 
-    // Lock page scroll behind the modal (mobile fix)
     const prevOverflow = document.body.style.overflow;
     const prevTouch = document.body.style.touchAction;
 
