@@ -20,12 +20,6 @@ export default function MembershipPage() {
         <div style={styles.card}>
           {/* Approved image */}
           <div style={styles.heroWrap}>
-            <img
-              src="/APPROVED.webp"
-              alt="Purchase approved successfully"
-              loading="eager"
-              style={styles.heroImg}
-            />
           </div>
 
           <h1 style={styles.title}>🎁&nbsp; Welcome! &nbsp;🎁</h1>
