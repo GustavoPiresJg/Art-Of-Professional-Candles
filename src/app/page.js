@@ -254,7 +254,7 @@ const onT3Scroll = () => {
       <section className="included" aria-label="What's Included bonuses">
         <div className="container">
           <h2 className="included-title">
-            What&apos;s Included? Unlock <br className="included-br" />
+            What's Included? Unlock <br className="included-br" />
             Over $97 Worth of Bonuses Today Only!
           </h2>
 
@@ -274,7 +274,7 @@ const onT3Scroll = () => {
       <section className="testimonials2" aria-label="Happy students testimonials">
         <div className="container">
           <h2 className="testimonials2-title">
-            <span className="testimonials2-top">Don&apos;t Just Take Our Word for It.</span>
+            <span className="testimonials2-top">Don't Just Take Our Word for It.</span>
             <span className="testimonials2-sub">Hear What Happy Students Are Saying!</span>
           </h2>
 
@@ -322,14 +322,10 @@ const onT3Scroll = () => {
   </div>
 </section>
 
-      
-
-{/* OUR COURSE vs. ALTERNATIVES (Support.webp) */}
-{/* OUR COURSE vs. ALTERNATIVES */}
 <section className="compare" aria-label="Our Course vs Alternatives">
   <div className="container">
     <h2 className="compare-title">
-      <span className="compare-pink">Our Course</span> vs. Alternatives
+      <span className="compare-pink">Our Course</span> vs  Alternatives
     </h2>
 
     {/* DESKTOP/TABLET: imagem pronta */}
