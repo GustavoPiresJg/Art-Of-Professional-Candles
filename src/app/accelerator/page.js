@@ -159,11 +159,12 @@ export default function AcceleratorPage() {
           margin: 6px 0 12px;
         }
 
-     .waitImg{
-  width: 100%;
-  height: auto;
-  display: block;
-}
+        .waitImg {
+          width: 100%;
+          max-width: 980px;
+          height: auto;
+          display: block;
+        }
 
         .headline {
           margin: 10px auto 10px;
@@ -257,11 +258,10 @@ export default function AcceleratorPage() {
             padding: 10px 10px 38px;
           }
 
-        .waitWrap{
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-}
+          .waitWrap {
+            margin-left: -10px;
+            margin-right: -10px;
+          }
 
           .panel {
             margin-left: -10px;
@@ -287,10 +287,9 @@ export default function AcceleratorPage() {
             border-radius: 0px;
           }
 
-        .waitImg {
-  width: 100%;
-  max-width: 100%;
-}
+          .waitImg {
+            width: 100%;
+          }
 
           .star {
             width: 20px;
