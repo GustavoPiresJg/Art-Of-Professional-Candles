@@ -1248,7 +1248,7 @@ function IncludedCarousel() {
       {
         key: "soy",
         type: "ebook",
-        img: "/soy-wax.webp",
+        img: "/soycandle.webp",
         title: "Soy Candle Making Essentials (Ebook)",
         text:
           "Learn the essentials of soy candles, including wax selection, wick pairing, and clean-burning techniques.",
@@ -1256,7 +1256,7 @@ function IncludedCarousel() {
       {
         key: "aroma",
         type: "ebook",
-        img: "/aromatheraphy.webp",
+        img: "/essential.webp",
         title: "Essential Guide to Aromatherapy Candles (Ebook)",
         text:
           "Create premium aromatherapy candles with fragrance blending tips and simple, professional methods.",
@@ -1264,7 +1264,7 @@ function IncludedCarousel() {
       {
         key: "biz",
         type: "ebook",
-        img: "/building-your-candle.webp",
+        img: "/strachbussines.webp",
         title: "Build Your Candle Business From Scratch (Ebook)",
         text:
           "Turn your candle-making hobby into a real business with guidance on pricing, marketing, and sales.",
@@ -1272,7 +1272,7 @@ function IncludedCarousel() {
       {
         key: "mold",
         type: "ebook",
-        img: "/complete-guilde.webp",
+        img: "/completeguiide.webp",
         title: "Complete Guide to Molded Candles (Ebook)",
         text:
           "Discover how to make stunning molded candles with step-by-step methods and practical tips.",
@@ -1280,7 +1280,7 @@ function IncludedCarousel() {
       {
         key: "pro",
         type: "ebook",
-        img: "/art-of-professional.webp",
+        img: "/professionalccandles.webp",
         title: "Art of Professional Candles (Ebook)",
         text:
           "Level up your craft with advanced finishing, aesthetics, and techniques that make candles look premium.",
@@ -1449,37 +1449,16 @@ function IncludedCarousel() {
       <div className="inc-track" ref={trackRef}>
         {items.map((it) => (
           <div className="inc-slide" key={it.key}>
-            <div className="inc-card">
+            <div className={"inc-card" + (it.key === "tips" ? " inc-card--tips" : "")}>
               <div className="inc-media" aria-hidden="true">
                 {it.type === "ebook" ? (
-                  <>
-                    <div className="inc-badge" aria-hidden="true">
-                      <div className="inc-badge-ico" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-                          <path
-                            d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
-                            stroke="white"
-                            strokeWidth="2"
-                          />
-                          <path
-                            d="M9 7h6M9 11h8M9 15h8"
-                            stroke="white"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                      </div>
-                      <div className="inc-badge-txt">E-BOOK</div>
-                    </div>
-
-                    <Image
-                      src={it.img}
-                      alt={it.title}
-                      fill
-                      sizes="(max-width: 900px) 86vw, 360px"
-                      className="inc-img"
-                    />
-                  </>
+                  <Image
+                    src={it.img}
+                    alt={it.title}
+                    fill
+                    sizes="(max-width: 900px) 86vw, 360px"
+                    className="inc-img inc-img--cover"
+                  />
                 ) : it.img ? (
                   <Image
                     src={it.img}
@@ -1547,10 +1526,6 @@ function SiteFooter({ isMobile }) {
 
   const [modal, setModal] = useState(null);
 
-  const gmailWeb = "https://mail.google.com/mail/?view=cm&fs=1&to=candlepreneurcare@gmail.com";
-  const mailto = "mailto:candlepreneurcare@gmail.com";
-  const supportHref = isMobile ? mailto : gmailWeb;
-
   const open = (key) => setModal(key);
   const close = () => setModal(null);
 
@@ -1565,7 +1540,7 @@ function SiteFooter({ isMobile }) {
       <footer className="site-footer" aria-label="Footer">
         <div className="container site-footer-inner">
           <div className="site-footer-copy">
-            2B Digital LLC - Copyright {year} - All rights reserved
+            Copyright {year} - All rights reserved
           </div>
 
           <div className="site-footer-links" role="navigation" aria-label="Footer links">
@@ -1579,10 +1554,6 @@ function SiteFooter({ isMobile }) {
               Refund Policy
             </button>
           </div>
-
-          <a className="site-footer-email" href={supportHref}>
-            candlepreneurcare@gmail.com
-          </a>
 
           {/* MOBILE ONLY: cards image */}
           <img className="site-footer-cards" src="/cards.webp" alt="Accepted payment methods" />
@@ -1705,7 +1676,7 @@ function PrivacyPolicyContent() {
         <li>Withdraw consent</li>
         <li>Object to data processing</li>
       </ul>
-      <p>To exercise your rights, contact us at: <br />candlepreneurcare@gmail.com</p>
+      <p>To exercise your rights, please contact us through the support channel provided at checkout (Hotmart).</p>
 
       <h3>10. International Users</h3>
       <p>Our Services may be accessed internationally.</p>
@@ -1723,7 +1694,7 @@ function PrivacyPolicyContent() {
       <p>
         2B DIGITAL LLC
         <br />
-        Email: candlepreneurcare@gmail.com
+        Support: Please contact us through the support channel provided at checkout (Hotmart).
       </p>
     </>
   );
@@ -1803,7 +1774,7 @@ function RefundPolicyContent() {
         <br />
         2B DIGITAL LLC
         <br />
-        Email: candlepreneurcare@gmail.com
+        Support: Please contact us through the support channel provided at checkout (Hotmart).
       </p>
     </>
   );
@@ -1924,7 +1895,7 @@ function TermsOfServiceContent() {
       <p>
         If you have any questions regarding these Terms, you may contact us at:
         <br />
-        Email: candlepreneurcare@gmail.com
+        Support: Please contact us through the support channel provided at checkout (Hotmart).
         <br />
         Company: 2B DIGITAL LLC
       </p>
@@ -1935,11 +1906,25 @@ function TermsOfServiceContent() {
 function PolicyModal({ open, title, onClose, children }) {
   useEffect(() => {
     if (!open) return;
+
+    // Lock page scroll behind the modal (mobile fix)
+    const prevOverflow = document.body.style.overflow;
+    const prevTouch = document.body.style.touchAction;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
     };
+
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+      document.body.style.touchAction = prevTouch;
+    };
   }, [open, onClose]);
 
   if (!open) return null;
@@ -1947,16 +1932,23 @@ function PolicyModal({ open, title, onClose, children }) {
   return (
     <div className="policy-overlay" role="dialog" aria-modal="true" aria-label={title}>
       <div className="policy-backdrop" onClick={onClose} aria-hidden="true" />
-      <div className="policy-modal">
-        <button type="button" className="policy-x" onClick={onClose} aria-label="Close">
-          ×
-        </button>
 
-        <div className="policy-head">{title}</div>
-        <div className="policy-body">
-          {children}
+      <div
+        className="policy-modal"
+        role="document"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="policy-top">
+          <div className="policy-title">{title}</div>
+
+          <button type="button" className="policy-x" onClick={onClose} aria-label="Close">
+            ×
+          </button>
         </div>
+
+        <div className="policy-body">{children}</div>
       </div>
     </div>
   );
 }
+
