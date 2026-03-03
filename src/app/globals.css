@@ -1712,7 +1712,7 @@ img { display: block; max-width: 100%; }
   font-size: 10px;
   text-align: center;
   width: 100%;
-  height: 56px;
+  height: 80px;
   border-radius: 12px;
   display: grid;
   place-items: center;
@@ -2319,7 +2319,7 @@ img { display: block; max-width: 100%; }
   }
   .faq-list{ gap: 14px; }
   .faq-q{
-    font-size: 15 px;
+    font-size: 13px;
     padding: 16px 16px;
   }
   .faq-a{
@@ -2471,53 +2471,68 @@ img { display: block; max-width: 100%; }
   }
 }
 
-
 /* =========================
-   HERO IG FEED — FIX MOBILE CAROUSEL + DIRECTIONS
+   HERO STATIC + MOBILE SWIPE (NO INFINITE)
 ========================= */
-
-/* Slow down desktop loop a bit */
-.vcol-up .vtrack{ animation-duration: 26s !important; }
-.vcol-down .vtrack{ animation-duration: 26s !important; }
-
-/* Desktop only: blur masks */
-@media (min-width: 901px){
-  .vcols--masked{ position: relative; }
-  .ig-carousel{ display: none; }
+.hero-static{
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+}
+.hero-static-img{
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Mobile: horizontal carousel */
-@media (max-width: 900px){
-  .vcols{ display: none !important; }
+.hcar{
+  width: 100%;
+  display: grid;
+  justify-items: center;
+}
+.hcar-track{
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 86%;
+  gap: 0;
 
-  .ig-carousel{
-    display: block;
-    overflow: hidden;
-    padding: 6px 0 10px;
-  }
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 10px;
+  padding: 0 10px 10px;
 
-  .ig-carouselTrack{
-    display: flex;
-    gap: 14px;
-    width: max-content;
-    will-change: transform;
-    animation: igScroll 18s linear infinite;
-  }
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+.hcar-track::-webkit-scrollbar{ height: 0; }
 
-  @keyframes igScroll{
-    from{ transform: translateX(0); }
-    to{ transform: translateX(-50%); }
-  }
+.hcar-slide{
+  scroll-snap-align: center;
+  padding: 0 6px;
+  display: grid;
+  place-items: center;
+}
 
-  /* card size on mobile (match reference) */
-  .ig-card{
-    min-width: 280px;
-    max-width: 280px;
-  }
+.hcar-card{
+  width: 100%;
+  border: 2px solid rgba(255, 26, 168, 0.85);
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 12px 0 rgba(255, 26, 168, 0.22), 0 14px 26px rgba(0,0,0,0.10);
+}
 
-  /* no blur mask on mobile */
-  .vcols--masked::before,
-  .vcols--masked::after{
-    content: none !important;
-  }
+.hcar-img{
+  width: 100%;
+  height: 340px;           /* tamanho fixo */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 420px){
+  .hcar-track{ grid-auto-columns: 92%; }
+  .hcar-img{ height: 320px; }
 }
