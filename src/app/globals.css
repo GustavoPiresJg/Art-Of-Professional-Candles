@@ -220,7 +220,7 @@ img { display: block; max-width: 100%; }
   grid-auto-columns: calc((100% - 52px) / 3); /* 3 cards + gaps */
   gap: 26px;
 
-  overflow-x: auto;
+  overflow-x: auto !important;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-padding: 12px;
@@ -685,7 +685,7 @@ img { display: block; max-width: 100%; }
   grid-auto-columns: 360px;
   gap: 26px;
 
-  overflow-x: auto;
+  overflow-x: auto !important;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-padding: 12px;
@@ -965,7 +965,7 @@ img { display: block; max-width: 100%; }
     grid-auto-columns: 88%;
     gap: 14px;
 
-    overflow-x: auto;
+    overflow-x: auto !important;
     scroll-snap-type: x mandatory;
     scroll-padding: 10px;
     padding: 0 10px 6px;
@@ -984,7 +984,7 @@ img { display: block; max-width: 100%; }
     grid-auto-columns: 100%;
     grid-template-columns: none;
     gap: 0;
-    overflow-x: auto;
+    overflow-x: auto !important;
     scroll-snap-type: x mandatory;
     scroll-padding: 12px;
     padding: 0 8px 8px;
@@ -2497,7 +2497,7 @@ img { display: block; max-width: 100%; }
   grid-auto-columns: 86%;
   gap: 0;
 
-  overflow-x: auto;
+  overflow-x: auto !important;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-padding: 10px;
@@ -2530,6 +2530,60 @@ img { display: block; max-width: 100%; }
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+@media (max-width: 420px){
+  .hcar-track{ grid-auto-columns: 92%; }
+  .hcar-img{ height: 320px; }
+}
+
+/* =========================
+   HERO MOBILE SWIPE (NATIVE - LIKE OTHER CAROUSELS)
+========================= */
+@media (max-width: 900px){
+  .hcar{ width: 100%; }
+
+  .hcar-track{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 86%;
+    gap: 0;
+
+    overflow-x: auto !important;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding: 10px;
+    padding: 0 10px 10px;
+
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+  }
+  .hcar-track::-webkit-scrollbar{ height: 0; }
+
+  .hcar-slide{
+    scroll-snap-align: center;
+    padding: 0 6px;
+  }
+
+
+  .hcar-track::-webkit-scrollbar{ height: 0; }
+
+  .hcar-card{
+    scroll-snap-align: center;
+    border: 2px solid rgba(255, 26, 168, 0.85);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .hcar-img{
+    width: 100%;
+    height: 340px;      /* fixed so all equal */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
 }
 
 @media (max-width: 420px){
