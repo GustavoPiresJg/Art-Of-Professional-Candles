@@ -1248,7 +1248,7 @@ function IncludedCarousel() {
       {
         key: "soy",
         type: "ebook",
-        img: "/soycandle.webp",
+        img: "/waxsoy.webp",
         title: "Soy Candle Making Essentials (Ebook)",
         text:
           "Learn the essentials of soy candles, including wax selection, wick pairing, and clean-burning techniques.",
@@ -1256,7 +1256,7 @@ function IncludedCarousel() {
       {
         key: "aroma",
         type: "ebook",
-        img: "/essential.webp",
+        img: "/guideessential.webp",
         title: "Essential Guide to Aromatherapy Candles (Ebook)",
         text:
           "Create premium aromatherapy candles with fragrance blending tips and simple, professional methods.",
