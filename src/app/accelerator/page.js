@@ -28,7 +28,7 @@ export default function AcceleratorPage() {
         {`!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);`}
       </Script>
 
-      {/* VTurb Player (NEW) */}
+      {/* VTurb Player */}
       <Script
         src="https://scripts.converteai.net/b6983c31-9e45-4de6-9678-d272c2ce100c/players/69a62aca4c54c72e8c7afc6c/v4/player.js"
         strategy="afterInteractive"
@@ -100,20 +100,35 @@ export default function AcceleratorPage() {
         </div>
       </section>
 
+      <style jsx global>{`
+        /* Kill sideways drag (structural fix, not JS blocking) */
+        html,
+        body {
+          width: 100%;
+          max-width: 100%;
+          overflow-x: hidden;
+        }
+      `}</style>
+
       <style jsx>{`
         .page {
           background: #ffffff;
           color: #0b0b0c;
           min-height: 100vh;
-          font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-            Apple Color Emoji, Segoe UI Emoji;
+          font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji,
+            Segoe UI Emoji;
+
+          /* extra safety for mobile */
+          width: 100%;
+          max-width: 100%;
+          overflow-x: hidden;
         }
 
         /* =========================
            TOP BAR
         ========================= */
         .topbar {
-          background: #ff3d9a; /* pink (was blue) */
+          background: #ff3d9a;
           color: #fff;
           padding: 22px 16px;
           text-align: center;
@@ -140,6 +155,9 @@ export default function AcceleratorPage() {
         ========================= */
         .content {
           padding: 18px 16px 44px;
+          width: 100%;
+          max-width: 100%;
+          overflow-x: hidden;
         }
 
         .hero {
@@ -155,8 +173,8 @@ export default function AcceleratorPage() {
         .waitWrap {
           display: flex;
           justify-content: center;
-          /* give it more screen on mobile without breaking desktop */
           margin: 6px 0 12px;
+          width: 100%;
         }
 
         .waitImg {
@@ -198,9 +216,10 @@ export default function AcceleratorPage() {
         }
 
         .starsImg {
-          width: 140px; /* star.webp already contains 5 stars */
+          width: 140px;
           height: auto;
           display: block;
+          max-width: 100%;
         }
 
         .reviewLine {
@@ -224,18 +243,21 @@ export default function AcceleratorPage() {
           border: 1px solid rgba(0, 0, 0, 0.1);
           border-radius: 0px;
           background: #fff;
-          overflow: hidden;
+          overflow: hidden; /* prevents inside stuff from creating sideways scroll */
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
         }
 
         .videoWrap {
           width: 100%;
+          max-width: 100%;
+          overflow: hidden;
         }
 
         vturb-smartplayer {
           width: 100% !important;
           display: block !important;
           border-radius: 0 !important;
+          max-width: 100% !important;
         }
 
         .checkoutPanel {
@@ -244,32 +266,32 @@ export default function AcceleratorPage() {
 
         .checkoutCard {
           background: #fff;
+          width: 100%;
+          max-width: 100%;
+          overflow: hidden;
         }
 
         .funnel {
           padding: 14px;
+          width: 100%;
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        /* Hotmart sometimes injects fixed-width iframes/divs */
+        .funnel :global(iframe),
+        .funnel :global(div),
+        .funnel :global(section) {
+          max-width: 100% !important;
         }
 
         /* =========================
-           MOBILE: 100% ADAPTADO
+           MOBILE
         ========================= */
         @media (max-width: 768px) {
           .content {
             padding: 10px 10px 38px;
           }
-
-          .waitWrap {
-            margin-left: -10px;
-            margin-right: -10px;
-          }
-
-          .panel {
-            margin-left: -10px;
-            margin-right: -10px;
-            border-left: 0;
-            border-right: 0;
-          }
-
 
           .topbar {
             padding: 18px 14px;
@@ -283,19 +305,6 @@ export default function AcceleratorPage() {
             font-size: 14px;
           }
 
-          .panel {
-            border-radius: 0px;
-          }
-
-          .waitImg {
-            width: 100%;
-          }
-
-          .star {
-            width: 20px;
-            height: 20px;
-          }
-
           .reviewLine {
             font-size: 14px;
             text-align: center;
@@ -306,10 +315,10 @@ export default function AcceleratorPage() {
             text-align: center;
           }
 
-          /* vídeo e checkout sem ficar colado na borda */
+          /* remove the old negative margins: they were the main cause of sideways drag */
           .panel {
-            margin-left: auto;
-            margin-right: auto;
+            border-left: 0;
+            border-right: 0;
           }
         }
 
