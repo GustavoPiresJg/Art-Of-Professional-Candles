@@ -1061,11 +1061,6 @@ function OfferCard() {
                 Soy Candle Making Essentials <span className="offer-pink">($10 Value)</span>
               </span>
             </li>
-
-            <li>
-              <img className="offer-checkImg" src="/check.webp" alt="" aria-hidden="true" />
-              <span>Candlepreneur Accelerator Course Certificate</span>
-            </li>
           </ul>
 
           <div className="offer-price">
