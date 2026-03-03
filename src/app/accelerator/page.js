@@ -55,9 +55,7 @@ export default function AcceleratorPage() {
         {/* HERO */}
         <div className="hero">
           <div className="heroInner">
-            <div className="waitWrap">
-              <img className="waitImg" src="/WAIT!.webp" alt="Wait" loading="eager" />
-            </div>
+      
 
             <h2 className="headline">
               Accelerate Your Results and Turn Your Candle Skills Into a $5,000/Month Business From Home.
