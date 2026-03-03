@@ -394,10 +394,9 @@ img { display: block; max-width: 100%; }
 }
 
 .t2-stars{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 4px;
+  color: #f5b301;
+  letter-spacing: 2px;
+  font-size: 18px;
 }
 
 .t2-text{
@@ -2856,33 +2855,4 @@ img { display: block; max-width: 100%; }
 }
 .policy-head{ font-size: 24px; }
 
-/* ===== STAR IMAGE (REPLACES SVG/TEXT STARS) ===== */
-.stars-img{
-  height: 18px;
-  width: auto;
-  display: block;
-}
 
-.rating-line{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.rating-stars{
-  height: 16px;
-  width: auto;
-  display: block;
-}
-
-@media (max-width: 900px){
-  .rating-line{
-    justify-content: center;
-  }
-  .rating-stars{
-    height: 14px;
-  }
-  .stars-img{
-    height: 16px;
-  }
-}

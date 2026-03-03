@@ -80,9 +80,7 @@ const onT3Scroll = () => {
         <div className="container hero-grid">
           <div className="hero-left">
             
-            <div className="rating-line"><img src="/star.webp" alt="5 star rating" className="rating-stars" />
-  <span>
-  <span>4.89 out of 5 based on 10,000+ Reviews</span></span></div>
+            <div className="rating-line">4.89 out of 5 based on 10,000+ Reviews</div>
 
             <h1 className="hero-title">
               Create &amp; Sell Candles from Home No Experience? No Problem!
@@ -818,7 +816,7 @@ function TestimonialsCarousel() {
               </div>
 
               <div className="t-stars" aria-label="5 star rating">
-                <img src="/star.webp" alt="5 star rating" className="stars-img" />
+                {"★★★★★"}
               </div>
 
               <p className="t-text">{t.text}</p>
@@ -891,7 +889,7 @@ function TestimonialsShowcase() {
 
             <div className="t2-body">
               <div className="t2-stars" aria-label="5 star rating">
-                <img src="/star.webp" alt="5 star rating" className="stars-img" />
+                {"★★★★★"}
               </div>
 
               <p className="t2-text">{t.text}</p>
