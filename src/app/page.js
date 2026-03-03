@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+
+
+const HOTMART_URL = "https://pay.hotmart.com/A104700865U?off=u3vrxfoz&checkoutMode=10";
 export default function Home() {// Testimonials carousel (mobile)
 const t3Ref = useRef(null);
 const [t3Active, setT3Active] = useState(0);
@@ -25,6 +28,15 @@ useEffect(() => {
     return () => mq.removeListener(apply);
   }
 }, []);
+
+const scrollToEnroll = (e) => {
+  if (e && typeof e.preventDefault === "function") e.preventDefault();
+  const el = document.getElementById("enroll");
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+
 
 const onT3Scroll = () => {
   const el = t3Ref.current;
@@ -113,7 +125,7 @@ const onT3Scroll = () => {
                 2,000, 3,000 or even $5,000 a month all from the comfort of their homes.
               </p>
 
-              <a className="cta" href="#enroll">
+              <a className="cta" href="#enroll" onClick={scrollToEnroll}>
                 YES! Enroll NOW <span className="cta-arrow">→</span>
               </a>
             </div>
@@ -146,7 +158,7 @@ const onT3Scroll = () => {
           <ReasonsCarousel />
 
           <div className="reasons-cta-wrap">
-            <a className="cta reasons-cta" href="#enroll">
+            <a className="cta reasons-cta" href="#enroll" onClick={scrollToEnroll}>
               YES! Enroll NOW <span className="cta-arrow">→</span>
             </a>
 
@@ -240,7 +252,7 @@ const onT3Scroll = () => {
             </div>
 
             <div className="promise-cta-wrap">
-              <a className="cta promise-cta" href="#enroll">
+              <a className="cta promise-cta" href="#enroll" onClick={scrollToEnroll}>
                 YES! Enroll NOW <span className="cta-arrow">→</span>
               </a>
 
@@ -261,7 +273,7 @@ const onT3Scroll = () => {
         <IncludedCarousel />
 
           <div className="included-cta-wrap">
-            <a className="cta included-cta" href="#enroll">
+            <a className="cta included-cta" href="#enroll" onClick={scrollToEnroll}>
               YES! Enroll NOW <span className="cta-arrow">→</span>
             </a>
 
@@ -411,7 +423,7 @@ const onT3Scroll = () => {
           <div className="savet-boxSub">Lifetime Access, No Recurring Payments</div>
         </div>
       </div>
-<a className="savet-cta savet-cta--mobile" href="#enroll">
+<a className="savet-cta savet-cta--mobile" href="#enroll" onClick={scrollToEnroll}>
   I WANT CANDLE SUCCESS NOW <span className="savet-arrow">→</span>
 </a>
 
@@ -578,8 +590,6 @@ const onT3Scroll = () => {
 
 {/* FAQ (FINAL) */}
 <FaqSection isMobile={isMobile} />
-
-      <div id="enroll" style={{ height: 1 }} />
     </>
   );
 }
@@ -1001,8 +1011,8 @@ function OfferCard() {
 
       <div className="offer-body">
         <div className="offer-head">
-          <div className="offer-titleRow">
-            <div className="offer-title">ART OF PROFESSIONAL CANDLES</div>
+          <div className="offer-titleRow" id="enroll">
+            <div className="offer-title">ART OF PROFESSIONAL CANDLES</div >
             <div className="offer-pill">Almost gone</div>
           </div>
 
@@ -1068,7 +1078,7 @@ function OfferCard() {
             </div>
           </div>
 
-          <a className="offer-cta" href="#enroll">
+          <a className="offer-cta" href={HOTMART_URL}>
             GO TO SECURE CHECKOUT <span className="offer-arrow">→</span>
           </a>
 
