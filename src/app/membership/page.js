@@ -2,7 +2,7 @@
 // Mobile-first, Server Component (no "use client"), no styled-jsx, no extra logos.
 
 export const metadata = {
-  title: "Membership — Access Released",
+  title: "Membership Access Released",
 };
 
 const SUPPORT_EMAIL = "candlepreneurcare@gmail.com";
