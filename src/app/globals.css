@@ -2590,3 +2590,17 @@ img { display: block; max-width: 100%; }
   .hcar-track{ grid-auto-columns: 92%; }
   .hcar-img{ height: 320px; }
 }
+
+/* =========================
+   FIX: SNAP STOP EM TODOS OS CARROSSÉIS (MOBILE)
+========================= */
+@media (max-width: 900px) {
+  .hcar-slide,
+  .t-slide,
+  .r-slide,
+  .inc-slide,
+  .t2-card,
+  .t3-card--snap {
+    scroll-snap-stop: always;
+  }
+}
