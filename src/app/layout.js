@@ -17,6 +17,19 @@ export default function RootLayout({ children }) {
           data-utmify-prevent-subids
           strategy="afterInteractive"
         />
+
+
+        <Script id="utmify-pixel-init" strategy="afterInteractive">
+          {`
+            window.pixelId = "69a8389dc3d164212bc33841";
+          `}
+        </Script>
+
+
+        <Script
+          src="https://cdn.utmify.com.br/scripts/pixel/pixel.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
