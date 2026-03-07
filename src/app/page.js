@@ -127,7 +127,7 @@ const onT3Scroll = () => {
                 2,000, 3,000 or even $5,000 a month all from the comfort of their homes.
               </p>
 
-              <a className="cta" href="#enroll" onClick={scrollToEnroll}>
+              <a className="cta" href={HOTMART_URL}>
                 YES! Enroll NOW <span className="cta-arrow">→</span>
               </a>
             </div>
@@ -160,7 +160,7 @@ const onT3Scroll = () => {
           <ReasonsCarousel />
 
           <div className="reasons-cta-wrap">
-            <a className="cta reasons-cta" href="#enroll" onClick={scrollToEnroll}>
+            <a className="cta reasons-cta" href={HOTMART_URL}>
               YES! Enroll NOW <span className="cta-arrow">→</span>
             </a>
 
@@ -254,7 +254,7 @@ const onT3Scroll = () => {
             </div>
 
             <div className="promise-cta-wrap">
-              <a className="cta promise-cta" href="#enroll" onClick={scrollToEnroll}>
+              <a className="cta promise-cta" href={HOTMART_URL}>
                 YES! Enroll NOW <span className="cta-arrow">→</span>
               </a>
 
@@ -275,7 +275,7 @@ const onT3Scroll = () => {
         <IncludedCarousel />
 
           <div className="included-cta-wrap">
-            <a className="cta included-cta" href="#enroll" onClick={scrollToEnroll}>
+            <a className="cta included-cta" href={HOTMART_URL}>
               YES! Enroll NOW <span className="cta-arrow">→</span>
             </a>
 
@@ -425,7 +425,7 @@ const onT3Scroll = () => {
           <div className="savet-boxSub">Lifetime Access, No Recurring Payments</div>
         </div>
       </div>
-<a className="savet-cta savet-cta--mobile" href="#enroll" onClick={scrollToEnroll}>
+<a className="savet-cta savet-cta--mobile" href={HOTMART_URL}>
   I WANT CANDLE SUCCESS NOW <span className="savet-arrow">→</span>
 </a>
 
