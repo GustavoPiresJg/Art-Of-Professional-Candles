@@ -64,7 +64,7 @@ img { display: block; max-width: 100%; }
 .hero-title {
   margin: 0 0 14px;
   font-weight: 900;
-  font-size: 12px;
+  font-size: 52px;
   line-height: 1.06;
   letter-spacing: -0.5px;
 }
@@ -2885,117 +2885,4 @@ img { display: block; max-width: 100%; }
   .stars-img{
     height: 16px;
   }
-}
-
-
-/* =========================
-   HERO VSL OVERRIDES
-========================= */
-.hero-left--single {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  justify-items: center;
-  text-align: center;
-  row-gap: 18px;
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.hero-left--single .hero-title,
-.hero-left--single .hero-text,
-.hero-left--single .hero-copy,
-.hero-left--single .hero-video {
-  grid-column: 1;
-  width: 100%;
-  margin-inline: auto;
-}
-
-.hero-left--single .hero-title {
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: clamp(26px, 4.1vw, 48px);
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-  text-wrap: balance;
-}
-
-.hero-left--single .hero-text {
-  max-width: 760px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 20px;
-  line-height: 1.55;
-}
-
-.hero-left--single .hero-copy {
-  max-width: 420px;
-  display: grid;
-  justify-items: center;
-}
-
-.hero-video {
-  width: 100%;
-  max-width: 340px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.hero-vturb-player {
-  display: block;
-  width: 100%;
-  max-width: 340px;
-  min-height: 190px;
-  margin: 0 auto;
-}
-
-.hero-video vturb-smartplayer,
-.hero-video .hero-vturb-player {
-  display: block;
-  width: 100%;
-  max-width: 340px;
-  margin: 0 auto;
-}
-
-@media (max-width: 900px) {
-  .hero-left--single {
-    max-width: 100%;
-    row-gap: 14px;
-  }
-
-  .hero-left--single .hero-title {
-    font-size: 25px;
-    line-height: 1.22;
-    letter-spacing: -0.03em;
-  }
-
-  .hero-left--single .hero-text {
-    font-size: 17px;
-    line-height: 1.5;
-    max-width: 100%;
-  }
-
-  .hero-video {
-    width: 100%;
-    max-width: 230px;
-  }
-
-  .hero-vturb-player,
-  .hero-video vturb-smartplayer {
-    width: 100%;
-    max-width: 290px;
-    min-height: 240px;
-  }
-
-  .hero-left--single .hero-copy {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-
-.highlight-money {
-  color: #ff3ea5; 
-  font-weight: inherit;
 }
