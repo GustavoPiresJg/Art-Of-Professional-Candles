@@ -5,14 +5,36 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 
 
-const HOTMART_URL = "https://pay.hotmart.com/A104700865U?off=u3vrxfoz&checkoutMode=10";
+const HOTMART_URL = "https://pay.purewellnessdaily.co/candles";
+
 export default function Home() {
 const t3Ref = useRef(null);
 const [t3Active, setT3Active] = useState(0);
 
-
+const [checkoutUrl, setCheckoutUrl] = useState(HOTMART_URL);
 
 const [isMobile, setIsMobile] = useState(false);
+
+// Captura UTMs da URL → localStorage e monta a URL de checkout via state React
+// Roda uma única vez no mount — 100% correto no Next.js App Router
+useEffect(() => {
+  const utms = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+
+  // 1. Salva UTMs presentes na URL no localStorage
+  const params = new URLSearchParams(window.location.search);
+  utms.forEach((utm) => {
+    const value = params.get(utm);
+    if (value) localStorage.setItem(utm, value);
+  });
+
+  // 2. Constrói a URL de checkout com os UTMs via state (correto no React)
+  const url = new URL(HOTMART_URL);
+  utms.forEach((utm) => {
+    const value = localStorage.getItem(utm);
+    if (value) url.searchParams.set(utm, value);
+  });
+  setCheckoutUrl(url.toString());
+}, []);
 
 useEffect(() => {
   const mq = window.matchMedia("(max-width: 900px)");
@@ -99,7 +121,7 @@ const onT3Scroll = () => {
             </div>
 
             <div className="hero-copy">
-              <a className="cta" href={HOTMART_URL}>
+              <a className="cta" href={checkoutUrl}>
                 YES! Enroll NOW <span className="cta-arrow">→</span>
               </a>
             </div>
@@ -132,7 +154,7 @@ const onT3Scroll = () => {
           <ReasonsCarousel />
 
           <div className="reasons-cta-wrap">
-            <a className="cta reasons-cta" href={HOTMART_URL}>
+            <a className="cta reasons-cta" href={checkoutUrl}>
               YES! Enroll NOW <span className="cta-arrow">→</span>
             </a>
 
@@ -226,7 +248,7 @@ const onT3Scroll = () => {
             </div>
 
             <div className="promise-cta-wrap">
-              <a className="cta promise-cta" href={HOTMART_URL}>
+              <a className="cta promise-cta" href={checkoutUrl}>
                 YES! Enroll NOW <span className="cta-arrow">→</span>
               </a>
 
@@ -247,7 +269,7 @@ const onT3Scroll = () => {
         <IncludedCarousel />
 
           <div className="included-cta-wrap">
-            <a className="cta included-cta" href={HOTMART_URL}>
+            <a className="cta included-cta" href={checkoutUrl}>
               YES! Enroll NOW <span className="cta-arrow">→</span>
             </a>
 
@@ -280,7 +302,7 @@ const onT3Scroll = () => {
       {/* OFFER CARD*/}
       <section className="offer" aria-label="Offer and secure checkout">
         <div className="container">
-          <OfferCard />
+          <OfferCard checkoutUrl={checkoutUrl} />
         </div>
       </section>
 
@@ -397,7 +419,7 @@ const onT3Scroll = () => {
           <div className="savet-boxSub">Lifetime Access, No Recurring Payments</div>
         </div>
       </div>
-<a className="savet-cta savet-cta--mobile" href={HOTMART_URL}>
+<a className="savet-cta savet-cta--mobile" href={checkoutUrl}>
   I WANT CANDLE SUCCESS NOW <span className="savet-arrow">→</span>
 </a>
 
@@ -922,7 +944,7 @@ function AlertNote() {
 /* =========================
    OFFER CARD
 ========================= */
-function OfferCard() {
+function OfferCard({ checkoutUrl }) {
   const [people, setPeople] = useState(211);
 
   useEffect(() => {
@@ -1049,7 +1071,7 @@ function OfferCard() {
             </div>
           </div>
 
-          <a className="offer-cta" href={HOTMART_URL}>
+          <a className="offer-cta" href={checkoutUrl}>
             GO TO SECURE CHECKOUT <span className="offer-arrow">→</span>
           </a>
 

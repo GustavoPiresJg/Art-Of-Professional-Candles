@@ -83,7 +83,7 @@ const onT3Scroll = () => {
   <span>
   <span>4.89 out of 5 based on 10,000+ Reviews</span></span></div>
 
-            <h1 className="hero-title">
+            <h1 className="hero-title hero-title--default">
               Create &amp; Sell Candles from Home No Experience? No Problem!
             </h1>
 
