@@ -1,8 +1,6 @@
 // src/app/membership/page.js
 // Mobile-first, Server Component (no "use client"), no styled-jsx, no extra logos.
 
-import Script from "next/script";
-
 export const metadata = {
   title: "Membership Access Released",
 };
@@ -13,31 +11,6 @@ const MEMBERS_AREA_URL = "https://www.xmembers.app/candlepreneur";
 export default function MembershipPage() {
   return (
     <main style={styles.page}>
-      {/* Meta Pixel — Purchase event, exclusivo da página /membership */}
-      <Script id="meta-pixel-purchase" strategy="afterInteractive">
-        {`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '2922099837993310');
-          fbq('track', 'Purchase', { value: 17.00, currency: 'USD' });
-        `}
-      </Script>
-      <noscript>
-        <img
-          height="1"
-          width="1"
-          style={{ display: "none" }}
-          src="https://www.facebook.com/tr?id=2922099837993310&ev=Purchase&cd[value]=17.00&cd[currency]=USD&noscript=1"
-          alt=""
-        />
-      </noscript>
-      {/* End Meta Pixel Code */}
       {/* Top success bar */}
       <div role="status" aria-live="polite" style={styles.strip}>
         Your purchase was completed successfully!
